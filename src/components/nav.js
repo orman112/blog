@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import styles from './header.module.scss'
+import styles from './nav.module.scss'
 
-class Header extends React.Component {
+class Nav extends React.Component {
     render() {
-        const HeaderLink = props => (
+        const NavLink = props => (
             <Link className={styles.link} to={props.to}>{props.text}</Link>
         )
 
@@ -47,12 +47,12 @@ class Header extends React.Component {
                     <SocialButton site='twitter' username='thefrugaldev'></SocialButton>
                 </div>
                 <div className={styles.row}>
-                    <HeaderLink to='/' text='HOME' />
-                    <HeaderLink to='/about' text='ABOUT' />
+                    <NavLink to='/' text='HOME' />
+                    <NavLink to='/about' text='ABOUT' />
                 </div>
             </header>
         )
     }
 }
 
-export default Header
+export default Nav

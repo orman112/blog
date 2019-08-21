@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 
 import styles from './layout.module.scss'
-import Header from './header'
+import Nav from './nav'
 
 class Layout extends React.Component {
   render() {
@@ -60,7 +60,7 @@ class Layout extends React.Component {
       >
         <header>{header}</header>
         <main>
-          <Header />
+          <Nav />
           {children}
         </main>
         <footer>
