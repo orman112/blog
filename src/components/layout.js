@@ -1,6 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
 
+import styles from './layout.module.scss'
+import Header from './header'
+
 class Layout extends React.Component {
   render() {
     const { location, title, children } = this.props
@@ -48,14 +51,18 @@ class Layout extends React.Component {
       )
     }
     return (
-      <div
+      <div 
+        className={styles.container}
         style={{
           marginLeft: `auto`,
           marginRight: `auto`,
         }}
       >
         <header>{header}</header>
-        <main>{children}</main>
+        <main>
+          <Header />
+          {children}
+        </main>
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
