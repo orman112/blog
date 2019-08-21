@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 
 import styles from './layout.module.scss'
 import Nav from './nav'
+import Footer from './footer'
 
 class Layout extends React.Component {
   render() {
@@ -52,22 +53,23 @@ class Layout extends React.Component {
     }
     return (
       <div 
-        className={styles.container}
         style={{
           marginLeft: `auto`,
           marginRight: `auto`,
         }}
       >
         <header>{header}</header>
-        <main>
+        <main className={styles.container}>
           <Nav />
-          {children}
+
+          <div className={styles.content}>
+            {children}
+          </div>
+          
+          <Footer>
+            The Frugal Dev
+          </Footer>
         </main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
       </div>
     )
   }
