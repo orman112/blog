@@ -1,18 +1,17 @@
-$container-width: 100%;
-$site-width: 960px;
-$color-pallete-1: #222f3e;
-$color-pallete-2: #0984e3;
-$color-pallete-3: #222f3e;
-$color-pallete-4: #ffffff;
-$color-pallete-5: #fafafa;
-$color-pallete-6: #777777;
-$color-pallete-7: #dfe6e9;
-$color-pallete-8: #000000;
-$color-pallete-9: #576574;
+@import "../styles/variables";
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+html {
+    // Makes 1rem === 10px
+    font-size: 62.5%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 17px;
-    line-height: 22px;
+    font-family: $font-sans-serif;
+    font-size: $font-size;
+    line-height: $line-height;
     margin: 0px;
 }
