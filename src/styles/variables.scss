@@ -1,0 +1,36 @@
+// Typography
+$font-heading: 'Montserrat', sans-serif;
+$font-sans-serif: 'Nunito Sans', Arial, Helvetica, sans-serif;
+$font-size: 1.7rem;
+$font-size-small: 1.5rem;
+$font-size-medium: 2rem;
+$font-size-large: 2.5rem;
+$font-size-xlarge: 3rem;
+$font-weight: 300;
+$font-weight-bold: 700;
+$line-height: 1.5;
+
+// Colors
+$color-pallete-1: #222f3e;
+$color-pallete-2: #0984e3;
+$color-pallete-3: #222f3e;
+$color-pallete-4: #ffffff;
+$color-pallete-5: #fafafa;
+$color-pallete-6: #777777;
+$color-pallete-7: #dfe6e9;
+$color-pallete-8: #000000;
+$color-pallete-9: #576574;
+
+// Scale
+$container-width: 100%;
+$site-width: 960px;
+$gap: 24px;
+
+// Screens
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 960px + (2 * $gap);
+$widescreen: 1152px + (2 * $gap);
+$cinema: 1344px + (2 * $gap);
+$ultrawide: 1600px + (2 * $gap);
+$shortscreen: 800px;
