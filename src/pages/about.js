@@ -4,6 +4,8 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from "../components/seo"
 
+import Title from '../components/title'
+
 class About extends React.Component {
     render() {
         const { data } = this.props
@@ -11,8 +13,8 @@ class About extends React.Component {
         
         return (
             <Layout location={this.props.location} title={siteTitle}>
-                <SEO title="About page" />
-                <h1>This is the about page</h1>
+                <SEO title="About Me" />
+                <Title text="About Me"></Title>
                 <p>
                     Refer to bio component to update about page.
                 </p>
