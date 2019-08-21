@@ -9,31 +9,9 @@
     margin-top: 50px;
 
     .row {
-      text-align: center;
+      display: flex;
+      justify-content: flex-end;
       padding: 5px;
-    }
-
-    .button {
-      background-color: $color-pallete-1;
-      display: inline-block;
-      font-family: $font-sans-serif;
-      font-size: 12px;
-      text-transform: uppercase;
-      color: white;
-      font-weight: bold;
-      height: 30px;
-      min-width: 15px;
-      line-height: 30px;
-      padding-left: 10px;
-      margin-right: 10px;
-      padding-right: 10px;
-
-      margin-bottom: 10px;
-
-        &:hover {
-          background-color: $color-pallete-2;
-        }
-
     }
 
     .button-icon {

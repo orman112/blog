@@ -15,3 +15,26 @@ body {
     line-height: $line-height;
     margin: 0px;
 }
+
+.button {
+    background-color: $color-pallete-1;
+    border-radius: 20px;
+    display: inline-block;
+    font-family: $font-sans-serif;
+    font-size: $font-size-xsmall;
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    height: 30px;
+    min-width: 15px;
+    line-height: 30px;
+    padding: 2px 12px;
+    margin-right: 10px;
+
+    margin-bottom: 10px;
+
+      &:hover {
+        background-color: $color-pallete-2;
+      }
+
+  }
