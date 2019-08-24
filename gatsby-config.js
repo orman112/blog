@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    title: `The Frugal Dev`,
+    author: `Clayton Orman`,
+    description: `A blog discussing topics around personal finance and technology.`,
+    siteUrl: `https://thefrugal.dev`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `thefrugaldev`,
     },
   },
   plugins: [
@@ -48,10 +48,21 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
+        resolve: `gatsby-plugin-gtag`,
+        options: {
+          // your google analytics tracking id
+          trackingId: `UA-145836894-1`,
+          // Puts tracking script in the head instead of the body
+          head: true,
+          // enable ip anonymization
+          anonymize: false,
+        }
+    },
+    {
+      resolve: `gatsby-plugin-disqus`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
-      },
+        shortname: `thefrugaldev`
+      }
     },
     `gatsby-plugin-feed`,
     {
