@@ -23,18 +23,21 @@ class BlogIndex extends React.Component {
             <article key={node.fields.slug}>
               <header>
                 <h3>
-                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                  <Link to={node.fields.slug}>
                     {title}
                   </Link>
                 </h3>
                 <small>{node.frontmatter.date}</small>
               </header>
               <section>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
+                <div>
+                  <img src={`https://source.unsplash.com/150x150/?${node.frontmatter.keywords}`} alt={title} />
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: node.frontmatter.description || node.excerpt,
+                    }}
+                  />
+                </div>
               </section>
             </article>
           )
@@ -64,6 +67,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            keywords
           }
         }
       }

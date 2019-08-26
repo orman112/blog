@@ -1,6 +1,8 @@
 ---
 title: Self-Hosting a Ghost Blog with Gatsby
 date: "2019-08-09T23:54:32.169Z"
+image: "https://source.unsplash.com/150x150/?hosting"
+keywords: "hosting gatsby ghost"
 ---
 
 I've finally done it, I've made the plunge and decided to create my own personal blog. This blog will mostly cover financial and technical topics that I find interesting. These could be topics that are new to me, or ones that I've been researching and using in my own personal life/career. 
