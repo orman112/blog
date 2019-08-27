@@ -1,10 +1,11 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React from 'react'
+import { Link, graphql } from 'gatsby'
 import { Disqus, CommentCount } from 'gatsby-plugin-disqus'
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Bio from '../components/bio'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import Title from '../components/title'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -27,26 +28,14 @@ class BlogPostTemplate extends React.Component {
         />
         <article>
           <header>
-            <h1
-              style={{
-                marginBottom: 0,
-              }}
-            >
-              {post.frontmatter.title}
-            </h1>
-            <p
-              style={{
-                display: `block`,
-              }}
-            >
+            <Title text={post.frontmatter.title} />
+            <strong>
               {post.frontmatter.date}
-            </p>
+            </strong>
           </header>
+          <div style={{width: '100%', height: '200px', backgroundColor: '#fafafa', backgroundImage: `Url(https://source.unsplash.com/960x200/?${post.frontmatter.keywords.split(' ')[0]})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', marginBottom: '30px'}}></div>
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
-          <hr
-            style={{
-            }}
-          />
+          <hr/>
           <footer>
             <Bio />
           </footer>
@@ -105,6 +94,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        keywords
       }
     }
   }
