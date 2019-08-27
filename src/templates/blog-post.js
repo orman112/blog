@@ -33,7 +33,7 @@ class BlogPostTemplate extends React.Component {
               {post.frontmatter.date}
             </strong>
           </header>
-          <div style={{width: '100%', height: '200px', backgroundColor: '#fafafa', backgroundImage: `Url(https://source.unsplash.com/960x200/?${post.frontmatter.keywords.split(' ')[0]})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', marginBottom: '30px'}}></div>
+          <div style={{width: '100%', height: '200px', backgroundImage: `Url(https://source.unsplash.com/960x200/?${post.frontmatter.keywords.split(' ')[0]})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', marginBottom: '30px'}}></div>
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
           <hr/>
           <footer>
