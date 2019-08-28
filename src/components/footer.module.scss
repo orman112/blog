@@ -1,23 +1,60 @@
 @import '../styles/global';
 
-$footer-height: 100px;
+$footer-height: 10rem;
 
 .container {
   background-color: $color-pallete-3;
-  width: $container-width;
+  width: $site-width;
   height: $footer-height;
   position: absolute;
   bottom: 0;
   width: $container-width;
+  display: flex;
+  justify-content: center;
 
     .footer {
-      margin: 0 auto;
       max-width: $site-width;
-      height: $footer-height;
-      line-height: $footer-height;
       color: $color-pallete-4;
       font-family: $font-heading;
       padding: 0px 20px 0px 20px;
+      display: flex;
+      align-self: center;
     }
 
+    .row {
+      display: flex;
+      justify-content: flex-end;
+      padding: 5px;
+      align-items: center;
+    }
+}
+
+.button-icon {
+  @extend .button;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.button-github {
+  @extend .button-icon;
+  background-image: url('../images/github.png');
+
+}
+
+.button-twitter {
+  @extend .button-icon;
+  background-image: url('../images/twitter.png');
+  margin-right: 0px;
+}
+
+.button-linkedin {
+  @extend .button-icon;
+  background-image: url('../images/linkedin.png');
+}
+
+.footer-container {
+  width: $site-width;
+  display: flex;
+  justify-content: space-between;
 }
