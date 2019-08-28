@@ -1,13 +1,11 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Title from "../components/title"
 import Articles from "../components/articles"
-import { styles } from "ansi-colors"
-
 
 class BlogIndex extends React.Component {
   render() {
@@ -19,32 +17,8 @@ class BlogIndex extends React.Component {
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All posts" />
         <Title text="The Frugal Dev" />
-        <Bio />
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <article key={node.fields.slug}>
-              <header>
-                <h3>
-                  <Link to={node.fields.slug}>
-                    {title}
-                  </Link>
-                </h3>
-                <small>{node.frontmatter.date}</small>
-              </header>
-              <section>
-                <div>
-                  <img src={`https://source.unsplash.com/150x150/?${node.frontmatter.keywords}`} alt={title} />
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: node.frontmatter.description || node.excerpt,
-                    }}
-                  />
-                </div>
-              </section>
-            </article>
-          )
-        })}
+        {/* <Bio /> */}
+        <Articles posts={posts} />
       </Layout>
     )
   }
