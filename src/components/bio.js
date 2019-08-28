@@ -50,7 +50,7 @@ const Bio = () => {
         }}
       />
       <p>
-        Written by <strong>{author}</strong>
+        Written by <strong>{author}</strong> who lives and works in Louisville, KY building useful things.
         {` `}
         <a href={`https://twitter.com/${social.twitter}`}>
           You should follow him on Twitter

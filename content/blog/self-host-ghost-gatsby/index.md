@@ -1,6 +1,8 @@
 ---
 title: Self-Hosting a Ghost Blog with Gatsby
 date: "2019-08-09T23:54:32.169Z"
+image: "https://source.unsplash.com/150x150/?hosting"
+keywords: "hosting gatsby ghost"
 ---
 
 I've finally done it, I've made the plunge and decided to create my own personal blog. This blog will mostly cover financial and technical topics that I find interesting. These could be topics that are new to me, or ones that I've been researching and using in my own personal life/career. 
@@ -49,7 +51,7 @@ Navigate to the ``/etc/nginx/sites-enabled`` directory and open the ``.conf`` fi
 
 If you opened the ``-ssl`` conf file, you should see something similar to this:
 
-````
+```` bash
 server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
@@ -79,7 +81,7 @@ server {
 ````
 After making adjustments (or creating a new ``.conf`` file with the same settings as above), your new configuration file with Gatsby enabled should look like this:
 
-````
+```` bash
 server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
@@ -124,19 +126,19 @@ I'm sure the process I've outlined will change overtime as I become more familia
 
 Side note: there may be a few files you want to keep secret, but still need in source control for any future environment migrations. The one that specifically comes to mind for me is the ``.ghost.json`` file, which stores your production url and api key. In order to prevent any updates you make in production from getting into source control, run the following git command in your terminal on your production server:
 
-````
+```` bash
 git update-index --skip-worktree .ghost.json
 ````
 
 This will ignore changes to that file, both local and upstream, until you decide to allow them again with:
 
-````
+```` bash
 git update-index --no-skip-worktree .ghost.json
 ````
 
 You can also get a list of any files that are marked skipped with the following command:
 
-````
+```` bash
 git ls-files -v . | grep ^S
 ````
 

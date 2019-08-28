@@ -20,7 +20,31 @@ class BlogIndex extends React.Component {
         <SEO title="All posts" />
         <Title text="The Frugal Dev" />
         <Bio />
-        <Articles posts={posts} />
+        {posts.map(({ node }) => {
+          const title = node.frontmatter.title || node.fields.slug
+          return (
+            <article key={node.fields.slug}>
+              <header>
+                <h3>
+                  <Link to={node.fields.slug}>
+                    {title}
+                  </Link>
+                </h3>
+                <small>{node.frontmatter.date}</small>
+              </header>
+              <section>
+                <div>
+                  <img src={`https://source.unsplash.com/150x150/?${node.frontmatter.keywords}`} alt={title} />
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: node.frontmatter.description || node.excerpt,
+                    }}
+                  />
+                </div>
+              </section>
+            </article>
+          )
+        })}
       </Layout>
     )
   }
@@ -46,6 +70,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            keywords
           }
         }
       }
