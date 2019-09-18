@@ -15,7 +15,7 @@ class Articles extends React.Component {
             <div className={styles.articleContent}>
               <img
                 className={styles.articleImage}
-                src={`https://source.unsplash.com/350x250/?${node.frontmatter.keywords}`} alt={title}
+                src={`https://source.unsplash.com/350x250/?${node.frontmatter.keyword}`} alt={title}
               />
               <div className={styles.articleCopy}>
                 <small className={styles.articleDate}>{node.frontmatter.date}</small>
