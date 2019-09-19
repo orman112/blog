@@ -2,9 +2,8 @@
 
 .container {
   padding-bottom: 10px;
-  margin-bottom: 15rem;
+  margin-bottom: 10rem;
   margin-top: 10rem;
-  border-bottom: 5px solid $color-pallete-9;
   text-align: center;
   text-transform: uppercase;
   color: $color-pallete-9;
@@ -12,7 +11,10 @@
   .title {
     font-family: $font-heading;
     font-size: $font-size-xlarge;
-    line-height: 60px;
+    margin-bottom: 2.5rem;
+    padding-bottom: 3.5rem;
+    border-bottom: 3px solid $color-pallete-9;
+    line-height: 1;
   }
 
   .subtitle {
