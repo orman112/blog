@@ -6,6 +6,8 @@ module.exports = {
     siteUrl: `https://thefrugal.dev`,
     social: {
       twitter: `thefrugaldev`,
+      linkedIn: `tfd`,
+      github: `thefrugaldev`,
     },
   },
   plugins: [
@@ -48,21 +50,21 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-        resolve: `gatsby-plugin-gtag`,
-        options: {
-          // your google analytics tracking id
-          trackingId: `UA-145836894-1`,
-          // Puts tracking script in the head instead of the body
-          head: true,
-          // enable ip anonymization
-          anonymize: false,
-        }
+      resolve: `gatsby-plugin-gtag`,
+      options: {
+        // your google analytics tracking id
+        trackingId: `UA-145836894-1`,
+        // Puts tracking script in the head instead of the body
+        head: true,
+        // enable ip anonymization
+        anonymize: false,
+      },
     },
     {
       resolve: `gatsby-plugin-disqus`,
       options: {
-        shortname: `thefrugaldev`
-      }
+        shortname: `thefrugaldev`,
+      },
     },
     `gatsby-plugin-feed`,
     {
@@ -79,6 +81,6 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`
+    `gatsby-plugin-sass`,
   ],
 }
