@@ -31,10 +31,11 @@ class About extends React.Component {
         />
         <strong>{author}</strong>
         <p>
-          I am developer with over 5 years of professional experience. I
-          primarily like to dabble in the .Net and Javascript world. My other
-          passions include personal finance topics, bourbon, and sports (I'm a
-          huge Georgia Bulldogs fan). Feel free to reach out to me on{" "}
+          I am developer with close to 10 years of professional experience. I
+          primarily dabble in the .Net and Javascript space, but always enjoy
+          learning new things. My other passions include personal finance
+          topics, bourbon, and sports (I'm a huge Georgia Bulldogs fan). Feel
+          free to reach out to me on{" "}
           <a
             href={`https://twitter.com/${social.twitter}`}
             target="_blank"
