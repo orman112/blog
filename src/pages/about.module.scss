@@ -1,0 +1,43 @@
+@import '../styles/global';
+
+.about-profile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5rem;
+}
+
+.about-name {
+  font-size: 3.5rem;
+  margin-top: 1.2rem;
+}
+
+.about-picture {
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  background-image: url("../../content/assets/profile-pic.jpg");
+  background-position: center;
+  background-size: cover;
+  box-shadow: 5px 5px 7px 0px rgba(0, 0, 0, 0.4);
+}
+
+.about-title {
+  font-family: $font-heading;
+}
+
+.about-text {
+  max-width: 75rem;
+  text-align: center;
+  margin: 0 auto 10rem;
+  font-size: 1.9rem;
+  line-height: 1.7;
+
+  .social-link {
+    color:#86b3bd;
+  }
+
+  a {
+    font-weight: bold;
+  }
+}

@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import Title from "../components/title"
+import styles from './about.module.scss'
 
 class About extends React.Component {
   render() {
@@ -15,28 +16,22 @@ class About extends React.Component {
     return (
       <Layout location={this.props.location} title={title}>
         <SEO title="About Me" />
-        <Title text="About Me"></Title>
+        <h2 className={styles.aboutTitle}>About Me</h2>
 
-        <Image
-          fixed={data.avatar.childImageSharp.fixed}
-          alt={author}
-          style={{
-            marginBottom: 0,
-            minWidth: 50,
-            borderRadius: `100%`,
-          }}
-          imgStyle={{
-            borderRadius: `50%`,
-          }}
-        />
-        <strong>{author}</strong>
-        <p>
+        <div className={styles.aboutProfile}>
+          <div
+            className={styles.aboutPicture}
+          />
+          <h2 className={styles.aboutName}>{author}</h2>
+        </div>
+        <p className={styles.aboutText}>
           I am developer with close to 10 years of professional experience. I
           primarily dabble in the .Net and Javascript space, but always enjoy
           learning new things. My other passions include personal finance
           topics, bourbon, and sports (I'm a huge Georgia Bulldogs fan). Feel
           free to reach out to me on{" "}
           <a
+            className={styles.socialLink}
             href={`https://twitter.com/${social.twitter}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -45,6 +40,7 @@ class About extends React.Component {
           </a>
           ,{" "}
           <a
+            className={styles.socialLink}
             href={`https://github.com/${social.github}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -53,6 +49,7 @@ class About extends React.Component {
           </a>
           , or{" "}
           <a
+            className={styles.socialLink}
             href={`https://www.linkedin.com/in/${social.linkedIn}/`}
             target="_blank"
             rel="noopener noreferrer"
