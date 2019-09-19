@@ -35,9 +35,27 @@ class About extends React.Component {
           primarily like to dabble in the .Net and Javascript world. My other
           passions include personal finance topics, bourbon, and sports (I'm a
           huge Georgia Bulldogs fan). Feel free to reach out to me on{" "}
-          <a href={`https://twitter.com/${social.twitter}`}>Twitter</a>,{" "}
-          <a href={`https://github.com/${social.github}`}>Github</a>, or{" "}
-          <a href={`https://www.linkedin.com/in/${social.linkedIn}/`}>
+          <a
+            href={`https://twitter.com/${social.twitter}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Twitter
+          </a>
+          ,{" "}
+          <a
+            href={`https://github.com/${social.github}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Github
+          </a>
+          , or{" "}
+          <a
+            href={`https://www.linkedin.com/in/${social.linkedIn}/`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             LinkedIn
           </a>
           .
@@ -63,6 +81,8 @@ export const pageQuery = graphql`
         author
         social {
           twitter
+          github
+          linkedIn
         }
         title
       }
