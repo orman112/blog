@@ -26,7 +26,7 @@ function deploy(res) {
   childProcess.exec(`./deploy.sh`, function(err, stdout, stderr) {
     if (err) {
       console.error(err)
-      return res.sendStatus(500)
+      return res.status(500).send(err)
     }
     res.sendStatus(200)
   })
