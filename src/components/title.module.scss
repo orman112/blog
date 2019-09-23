@@ -7,12 +7,18 @@
 
   .title {
     font-family: $font-heading;
-    font-size: $font-size-xlarge;
-    margin-bottom: 2.5rem;
-    padding-bottom: 3.5rem;
-    border-bottom: 3px solid $blue-grey;
+    font-size: $font-size-xxlarge;
+    padding-bottom: 3rem;
+    margin-bottom: 0;
+    border-bottom: 2px solid rgba(34, 47, 62, .5);
     line-height: 1;
     margin-top: 0;
+    text-align: center;
+
+    @media (max-width: $tablet - 1px) {
+     font-size: $font-size-large;
+     padding-bottom: 2rem;
+    }
   }
 
   .subtitle {

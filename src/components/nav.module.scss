@@ -10,6 +10,10 @@
     display: flex;
     justify-content: flex-end;
     padding: 5px;
+
+    @media (max-width: $tablet - 1px) {
+      margin-right: 2rem;
+    }
   }
 
   .button-icon {
@@ -36,14 +40,15 @@
   }
 
   .link {
-    color: $navy;
-
+    color: $blue;
+    opacity: .65;
     font-family: $font-heading;
     font-size: $font-size-small;
     font-weight: bold;
     text-decoration: none;
 
     &:hover {
+      opacity: 1;
       color: $blue;
     }
 

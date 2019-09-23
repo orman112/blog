@@ -30,7 +30,11 @@
   line-height: 1.7;
 
   .social-link {
-    color: $light-blue;
-    font-weight: bold;
+    color: $blue;
+    opacity: .75;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
