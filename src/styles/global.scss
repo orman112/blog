@@ -1,45 +1,55 @@
 @import "../styles/variables";
-@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 
 html {
-    // Makes 1rem === 10px
-    font-size: 62.5%;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-  }
+  // Makes 1rem === 10px
+  font-size: 62.5%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
 
 body {
-    font-family: $font-sans-serif;
-    font-size: $font-size;
-    line-height: $line-height;
-    margin: 0px;
+  font-family: $font-sans-serif;
+  font-size: $font-size;
+  line-height: $line-height;
+  margin: 0px;
 }
 
 a {
   text-decoration: none;
-  color: $color-pallete-1;
+  color: $navy;
 }
 
 .button {
-    background-color: $color-pallete-1;
-    border-radius: 20px;
-    display: inline-block;
-    font-family: $font-sans-serif;
-    font-size: $font-size-xsmall;
-    text-transform: uppercase;
-    color: white;
-    font-weight: bold;
-    height: 30px;
-    min-width: 15px;
-    line-height: 30px;
-    padding: 2px 12px;
-    margin-right: 10px;
+  background-color: $navy;
+  border-radius: 20px;
+  display: inline-block;
+  font-family: $font-sans-serif;
+  font-size: $font-size-xsmall;
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+  height: 30px;
+  min-width: 15px;
+  line-height: 30px;
+  padding: 2px 12px;
+  margin-right: 10px;
 
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 
-      &:hover {
-        background-color: $color-pallete-2;
-      }
-
+  &:hover {
+    background-color: $blue;
   }
+}
+
+.alert {
+  color: $navy;
+  background-color: $light-grey;
+  border-color: $dark-grey;
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 3rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}

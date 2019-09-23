@@ -1,12 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Image from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import Title from "../components/title"
-import styles from './about.module.scss'
+import styles from "./about.module.scss"
 
 class About extends React.Component {
   render() {
@@ -18,14 +16,12 @@ class About extends React.Component {
         <SEO title="About Me" />
 
         <div className={styles.aboutProfile}>
-          <div
-            className={styles.aboutPicture}
-          />
+          <div className={styles.aboutPicture} />
           <h2 className={styles.aboutName}>{author}</h2>
         </div>
         <p className={styles.aboutText}>
-          I am developer with close to 10 years of professional experience. I
-          primarily dabble in the .Net and Javascript space, but always enjoy
+          I am a developer with close to 10 years of professional experience. I
+          primarily dabble in the .Net and JavaScript space, but always enjoy
           learning new things. My other passions include personal finance
           topics, bourbon, and sports (I'm a huge Georgia Bulldogs fan). Feel
           free to reach out to me on{" "}

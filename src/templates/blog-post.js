@@ -1,11 +1,10 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
-import { Disqus, CommentCount } from 'gatsby-plugin-disqus'
+import React from "react"
+import { Link, graphql } from "gatsby"
+import { Disqus, CommentCount } from "gatsby-plugin-disqus"
 
-import Bio from '../components/bio'
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-import Title from '../components/title'
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import Title from "../components/title"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -15,7 +14,8 @@ class BlogPostTemplate extends React.Component {
 
     //Disqus integration
     const disqusConfig = {
-      url: `${this.props.data.site.siteMetadata.siteUrl + this.props.location.pathname}`,
+      url: `${this.props.data.site.siteMetadata.siteUrl +
+        this.props.location.pathname}`,
       identifier: post.id,
       title: post.title,
     }
@@ -29,16 +29,20 @@ class BlogPostTemplate extends React.Component {
         <article>
           <header>
             <Title text={post.frontmatter.title} />
-            <strong>
-              {post.frontmatter.date}
-            </strong>
+            <strong>{post.frontmatter.date}</strong>
           </header>
-          <div style={{width: '100%', height: '200px', backgroundImage: `Url(https://source.unsplash.com/960x200/?${post.frontmatter.keyword}})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', marginBottom: '30px'}}></div>
+          <div
+            style={{
+              width: "100%",
+              height: "200px",
+              backgroundImage: `Url(https://source.unsplash.com/960x200/?${post.frontmatter.keyword}})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              marginBottom: "30px",
+            }}
+          ></div>
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
-          <hr/>
-          <footer>
-            <Bio />
-          </footer>
+          <hr />
         </article>
 
         <nav>
@@ -68,7 +72,7 @@ class BlogPostTemplate extends React.Component {
           </ul>
         </nav>
 
-        <CommentCount config={disqusConfig} placeholder={'...'} />
+        <CommentCount config={disqusConfig} placeholder={"..."} />
         <Disqus config={disqusConfig} />
       </Layout>
     )

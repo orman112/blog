@@ -1,4 +1,4 @@
-@import '../styles/global';
+@import "../styles/global";
 
 .about-profile {
   display: flex;
@@ -30,10 +30,7 @@
   line-height: 1.7;
 
   .social-link {
-    color:#86b3bd;
-  }
-
-  a {
+    color: $light-blue;
     font-weight: bold;
   }
 }

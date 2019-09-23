@@ -1,58 +1,54 @@
-@import '../styles/global';
-
+@import "../styles/global";
 
 .container {
-    max-width: $site-width;
-    min-height: 8rem;
-    margin: 0 auto;
-    padding-top: 30px;
+  max-width: $site-width;
+  min-height: 8rem;
+  margin: 0 auto;
+  padding-top: 30px;
 
-    .row {
-      display: flex;
-      justify-content: flex-end;
-      padding: 5px;
-    }
-
-    .button-icon {
-      @extend .button;
-      background-size: 16px 16px;
-      background-repeat: no-repeat;
-      background-position: center center;
-    }
-
-    .button-github {
-      @extend .button-icon;
-      background-image: url('../images/github.png');
-
-    }
-
-    .button-twitter {
-      @extend .button-icon;
-      background-image: url('../images/twitter.png');
-      margin-right: 0px;
-    }
-
-    .button-linkedin {
-      @extend .button-icon;
-      background-image: url('../images/linkedin.png');
-    }
-
-    .link {
-      color: $color-pallete-1;
-
-      font-family: $font-heading;
-      font-size: $font-size-small;
-      font-weight: bold;
-      text-decoration: none;
-
-      &:hover {
-        color: $color-pallete-2;
-      }
-
-      &:not(:last-child) {
-        padding-right: 30px;
-      }
-
-    }
-
+  .row {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
   }
+
+  .button-icon {
+    @extend .button;
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .button-github {
+    @extend .button-icon;
+    background-image: url("../images/github.png");
+  }
+
+  .button-twitter {
+    @extend .button-icon;
+    background-image: url("../images/twitter.png");
+    margin-right: 0px;
+  }
+
+  .button-linkedin {
+    @extend .button-icon;
+    background-image: url("../images/linkedin.png");
+  }
+
+  .link {
+    color: $navy;
+
+    font-family: $font-heading;
+    font-size: $font-size-small;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+      color: $blue;
+    }
+
+    &:not(:last-child) {
+      padding-right: 30px;
+    }
+  }
+}

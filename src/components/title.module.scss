@@ -1,20 +1,18 @@
-@import '../styles/global';
+@import "../styles/global";
 
 .container {
-  padding-bottom: 10px;
-  margin-bottom: 10rem;
-  margin-top: 10rem;
   text-align: center;
   text-transform: uppercase;
-  color: $color-pallete-9;
+  color: $blue-grey;
 
   .title {
     font-family: $font-heading;
     font-size: $font-size-xlarge;
     margin-bottom: 2.5rem;
     padding-bottom: 3.5rem;
-    border-bottom: 3px solid $color-pallete-9;
+    border-bottom: 3px solid $blue-grey;
     line-height: 1;
+    margin-top: 0;
   }
 
   .subtitle {

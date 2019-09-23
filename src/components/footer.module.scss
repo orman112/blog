@@ -1,9 +1,9 @@
-@import '../styles/global';
+@import "../styles/global";
 
 $footer-height: 10rem;
 
 .container {
-  background-color: $color-pallete-3;
+  background-color: $navy;
   width: $site-width;
   height: $footer-height;
   position: absolute;
@@ -12,21 +12,21 @@ $footer-height: 10rem;
   display: flex;
   justify-content: center;
 
-    .footer {
-      max-width: $site-width;
-      color: $color-pallete-4;
-      font-family: $font-heading;
-      padding: 0px 20px 0px 20px;
-      display: flex;
-      align-self: center;
-    }
+  .footer {
+    max-width: $site-width;
+    color: $white;
+    font-family: $font-heading;
+    padding: 0px 20px 0px 20px;
+    display: flex;
+    align-self: center;
+  }
 
-    .row {
-      display: flex;
-      justify-content: flex-end;
-      padding: 5px;
-      align-items: center;
-    }
+  .row {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+    align-items: center;
+  }
 }
 
 .button-icon {
@@ -38,19 +38,18 @@ $footer-height: 10rem;
 
 .button-github {
   @extend .button-icon;
-  background-image: url('../images/github.png');
-
+  background-image: url("../images/github.png");
 }
 
 .button-twitter {
   @extend .button-icon;
-  background-image: url('../images/twitter.png');
+  background-image: url("../images/twitter.png");
   margin-right: 0px;
 }
 
 .button-linkedin {
   @extend .button-icon;
-  background-image: url('../images/linkedin.png');
+  background-image: url("../images/linkedin.png");
 }
 
 .footer-container {
