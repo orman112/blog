@@ -1,6 +1,8 @@
 const express = require("express")
 const app = express()
-app.get("/github", (req, res) => {
+const basePathPrefix = `/webhooks`
+
+app.get(`${basePathPrefix}/github`, (req, res) => {
   res.send("Deploying blog application")
 })
 
