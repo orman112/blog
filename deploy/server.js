@@ -29,7 +29,7 @@ function deploy(res) {
     stderr
   ) {
     if (err) {
-      return res.status(500).send(stderr)
+      return res.status(500).send(err)
     }
     res.sendStatus(200)
   })
