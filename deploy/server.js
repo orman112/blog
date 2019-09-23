@@ -1,6 +1,6 @@
 const express = require("express")
 const app = express()
-app.get("/webhooks/github", (req, res) => {
+app.get("/github", (req, res) => {
   res.send("Deploying blog application")
 })
 
