@@ -23,9 +23,13 @@ app.post(`${basePathPrefix}/github/deploy`, (req, res) => {
 })
 
 function deploy(res) {
-  childProcess.exec("bash ./deploy.sh", function(err, stdout, stderr) {
+  childProcess.exec("/var/www/blog/deploy/deploy.sh", function(
+    err,
+    stdout,
+    stderr
+  ) {
     if (err) {
-      return res.status(500).send(stderr)
+      return res.status(500).send(err)
     }
     res.sendStatus(200)
   })
