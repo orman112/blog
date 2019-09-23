@@ -18,15 +18,14 @@ app.post(`${basePathPrefix}/github/deploy`, (req, res) => {
   if (
     repo.default_branch.indexOf("master") > -1 &&
     sender.login == githubUserName
-  )
-    deploy(res)
+  ) {
+    childProcess.exec("./deploy.sh", function(err, stdout, stderr) {
+      if (err) {
+        return res.status(500).send(stderr)
+      }
+      res.sendStatus(200)
+    })
+  }
 })
 
-function deploy(res) {
-  childProcess.exec("./deploy.sh", function(err, stdout, stderr) {
-    if (err) {
-      return res.status(500).send(stderr)
-    }
-    res.sendStatus(200)
-  })
-}
+function deploy(res) {}
