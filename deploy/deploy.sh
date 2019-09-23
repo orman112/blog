@@ -1,4 +1,3 @@
-#!/bin/bash
 cd ..
 echo "Installing dependencies for blog application"
 yarn --version
