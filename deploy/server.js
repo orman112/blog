@@ -24,29 +24,16 @@ app.post(`${basePathPrefix}/github/deploy`, (req, res) => {
 })
 
 function deploy(res) {
-  // childProcess.exec("sh /var/www/blog/deploy/deploy.sh", function(
-  //   err,
-  //   stdout,
-  //   stderr
-  // ) {
-  //   if (err) {
-  //     return res.status(500).send(err)
-  //   }
-  //   res.sendStatus(200)
-  // })
-  const deploy = childProcess.spawn("./deploy.sh")
-
-  deploy.stdout.on("data", data => {
-    console.log(`stdout: ${data}`)
-    return res.sendStatus(200)
-  })
-
-  deploy.stderr.on("data", data => {
-    console.error(`stderr: ${data}`)
-    return res.status(500).send(err)
-  })
-
-  deploy.on("close", code => {
-    console.log(`child process exited with code ${code}`)
-  })
+  setInterval(() => {
+    childProcess.exec("sh /var/www/blog/deploy/deploy.sh", function(
+      err,
+      stdout,
+      stderr
+    ) {
+      if (err) {
+        return res.status(500).send(err)
+      }
+    })
+  }, 2000)
+  res.sendStatus(200)
 }
