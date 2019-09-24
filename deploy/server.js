@@ -24,16 +24,14 @@ app.post(`${basePathPrefix}/github/deploy`, (req, res) => {
 })
 
 function deploy(res) {
-  setInterval(() => {
-    childProcess.exec("sh /var/www/blog/deploy/deploy.sh", function(
-      err,
-      stdout,
-      stderr
-    ) {
-      if (err) {
-        return res.status(500).send(err)
-      }
-    })
-  }, 2000)
-  res.sendStatus(200)
+  childProcess.exec("sh /var/www/blog/deploy/deploy.sh", function(
+    err,
+    stdout,
+    stderr
+  ) {
+    if (err) {
+      return res.status(500).send(err)
+    }
+    res.sendStatus(200)
+  })
 }
