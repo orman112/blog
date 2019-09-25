@@ -17,7 +17,7 @@ class BlogIndex extends React.Component {
         <SEO title="All posts" />
         <Title text="The Frugal Dev" />
         <p className="alert">
-          Welcome to my blog! My name is <Link to="/about">Clayton</Link> and I
+          Welcome to my blog!! My name is <Link to="/about">Clayton</Link> and I
           enjoy learning all about new and interesting topics, specifically in
           the technology and personal finance fields. I also enjoy teaching and
           discussing these topics, as I feel this is truly the only way to fully
