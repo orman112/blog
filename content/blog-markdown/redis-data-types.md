@@ -1,7 +1,6 @@
 ---
 title: Getting Familiar with Redis Data Types
 date: "2019-09-25"
-image: "https://source.unsplash.com/150x150/?redis"
 tags: "technology redis caching cache"
 keyword: "speed"
 description: ""
@@ -147,6 +146,7 @@ OK
 ```
 
 ### **Sorted Sets**
+
 Sorted sets are similar in nature to [sets](#Sets), where they are non-repeating collections of strings. There is a subtle difference in that every member of a sorted set is associated with a score. **Scores** are a range of integers that can be expressed precisely. Sorted sets use a double 64-bit floating point number to represent the score, and this is what will ultimately be used to sort the given set.
 
 While members of a sorted sets are unique, similar to [sets](#Sets), scores may be repeated. Sorted sets begin sorting the set as items are added, which is an _O_(log(_n_)) operation. This improves performance when retreiving an element from the sorted set, making it an _O_(1), or constant time, operation because it's already sorted.

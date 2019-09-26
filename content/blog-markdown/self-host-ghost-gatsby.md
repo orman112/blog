@@ -1,7 +1,6 @@
 ---
 title: Self-Hosting a Ghost Blog with Gatsby
 date: "2019-08-09"
-image: "https://source.unsplash.com/150x150/?hosting"
 tags: "technology hosting gatsby ghost"
 keyword: "server"
 description: ""

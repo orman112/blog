@@ -4,7 +4,6 @@ import { Disqus, CommentCount } from "gatsby-plugin-disqus"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Title from "../components/title"
 import styles from "./blog-post.module.scss"
 
 class BlogPostTemplate extends React.Component {
@@ -34,12 +33,14 @@ class BlogPostTemplate extends React.Component {
           <div
             className={styles.postImage}
             style={{
-              backgroundImage: `Url(https://source.unsplash.com/960x300/?${post.frontmatter.keyword}})`
+              backgroundImage: `Url(https://source.unsplash.com/960x300/?${post.frontmatter.keyword}})`,
             }}
-          >
-          </div>
+          ></div>
           <p className={styles.postDate}>{post.frontmatter.date}</p>
-          <section className={styles.post} dangerouslySetInnerHTML={{ __html: post.html }} />
+          <section
+            className={styles.post}
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
           <hr />
         </article>
 
