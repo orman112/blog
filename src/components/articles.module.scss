@@ -5,6 +5,10 @@
   margin-bottom: 5rem;
   border-bottom: solid 1px rgba(42, 68, 105, .3);
 
+  &:last-child {
+    border-bottom: none;
+  }
+
   @media (max-width: $tablet - 1px) {
     display: block;
   }
@@ -19,7 +23,7 @@
   font-size: $font-size-medium;
   margin-bottom: 0;
   font-weight: lighter;
-  opacity: .8;
+  opacity: .7;
 
   &:hover {
     opacity: 1;
