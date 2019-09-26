@@ -15,7 +15,7 @@ _Note: All examples below are utilizing the `redis-cli` but feel free to follow 
 
 If you are already somewhat familiar with caching, you'll understand that most values are retrieved using a _key_ to lookup said value. In typical caching systems, this key is represented by a primitive string. In Redis, however, keys are binary safe, which means that you can use something as simple as "thefrugaldev" as your key, or something as complex as the content of a JPEG file. With that being said, it is [recommended on their docs](https://redis.io/topics/data-types-intro#redis-keys) to stick with a schema (ex: "object-type:id") rather than really condensed or complex keys, as this can have an impact on lookup performance. Keys can also be assigned for a [limited (expiry) time](https://redis.io/commands/expire) as seen in the example below.
 
-**Example**
+### **Example**
 
 ```
 > set key some-value
@@ -38,11 +38,11 @@ OK
 
 Strings are the most basic kind of Redis data type and have a max value of 512 MB. Strings, similar to keys in Redis, are binary safe, meaning they can contain any type of data including JPEG images, serialized objects, etc.
 
-**When to use strings**
+### **When to use strings**
 
 Strings are useful when you need to encode a lot of data in a little amount space. This may include caching HTML fragments or pages. Because Redis does not have a dedicated integer type, strings can also be used to represent a base-10, 64-bit signed integer. Built-in Redis commands including [INCR](https://redis.io/commands/incr) (increment) or [DECR](https://redis.io/commands/decr) (decrement) can then be used to adjust these integer values.
 
-**Example**
+### **Example**
 
 ```
 > set thefrugaldev awesome
@@ -56,11 +56,11 @@ OK
 
 If you are familiar with Linked List data types, you are already on your way to understanding Lists in Redis. Lists in Redis are essentially Linked Lists of [string values](#Strings), sorted by insertion order. A List in Redis offers a very generous max length of 2<sup>32</sup> - 1 elements (more than 4 billion elements). Similar to a Linked List, when elements are added to a Redis List they can be inserted at the head (beginning) or tail (end) of the list very quickly since it's an O(N) operation. However, these operations can become super slow if you're accessing anything near the middle of a very large list.
 
-**When to use lists**
+### **When to use lists**
 
 A very common use case for Redis Lists is the social network example. [Twitter uses Redis Lists](https://www.infoq.com/presentations/Real-Time-Delivery-Twitter/) to display the latest tweets in a real-time approach. Redis also recommends using lists for communication between processes, where one (the producer) pushes elements onto the list and then the other (consumer) pulls the items off the list and takes some action.
 
-**Example**
+### **Example**
 
 ```
 # Create a new list
@@ -88,11 +88,11 @@ A very common use case for Redis Lists is the social network example. [Twitter u
 
 Redis Sets are an _unordered_ collection of strings. Because there is no guarantee on the order in which a set is returned to the user, operations are always _O_(1), or constant time, regardless of the number of elements within the set. Sets in Redis will never allow repeated members, so adding the same element multiple times will still result in the set only containing one copy of the element. This means that adding an element does not require an initial check to see if it already exists within the set. Unions, intersections, difference operations are all possible with Redis sets and are executed rather quickly.
 
-**When to use sets**
+### **When to use sets**
 
 Sets are great for identifying relationships between entities. For example, keeping track of the individuals that make up a team. Because set values are always unique, another good example for utilizing sets is keeping track of unique visitors to a website or webpage.
 
-**Examples**
+### **Examples**
 
 ```
 # Create a set for an amazing basketball team
@@ -120,12 +120,12 @@ Sets are great for identifying relationships between entities. For example, keep
 
 Redis Hashes are maps between string fields and string values, and are great for storing more complex data. With that in mind, they are perfect for representing objects and, like [lists](#Lists), hashes can store more than 2<sup>32</sup> - 1 (4 billion) field-value pairs.
 
-**When to use sets**
+### **When to use sets**
 
 If you're familiar with object-oriented programming, which I'm assuming a lot of you are, Hashes are a great way to represent and cache these objects. One great example I've read while
 researching is inventory information for an e-commerce site.
 
-**Examples**
+### **Examples**
 
 ```
 # Create a Hash and set multiple values at once
@@ -146,18 +146,18 @@ OK
 6) "bourbon"
 ```
 
-**Sorted Sets**
+### **Sorted Sets**
 Sorted sets are similar in nature to [sets](#Sets), where they are non-repeating collections of strings. There is a subtle difference in that every member of a sorted set is associated with a score. **Scores** are a range of integers that can be expressed precisely. Sorted sets use a double 64-bit floating point number to represent the score, and this is what will ultimately be used to sort the given set.
 
 While members of a sorted sets are unique, similar to [sets](#Sets), scores may be repeated. Sorted sets begin sorting the set as items are added, which is an _O_(log(_n_)) operation. This improves performance when retreiving an element from the sorted set, making it an _O_(1), or constant time, operation because it's already sorted.
 
 Assuming an element is added to a sorted set with a unique score, the element will be sorted on that score appropriately. However, if the score provided is similar to another score already in the set, the elements will be sorted lexographically (alphabetically). One other thing to note, sorted sets are variadic, meaning they have an indefinite arity, or the number of arguments a function accepts.
 
-**When to use sorted sets**
+### **When to use sorted sets**
 
 One of the best examples I've come across in relation to using sorted sets comes from Redis' own [documentation](https://redis.io/documentation). There are many commands to use when keeping track of leaderboards in an online multiplayer game, including [ZADD](https://redis.io/commands/zadd) when a new score is submitted, [ZRANGE](https://redis.io/commands/zrange) to pull the top of the leaderboard, and [ZRANK](https://redis.io/commands/zrank) to find a specific users' ranking, all with impressive speed.
 
-**Example**
+### **Example**
 
 ```
 # Create a sorted set with multiple members

@@ -5,6 +5,7 @@ import { Disqus, CommentCount } from "gatsby-plugin-disqus"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Title from "../components/title"
+import styles from "./blog-post.module.scss"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -28,20 +29,17 @@ class BlogPostTemplate extends React.Component {
         />
         <article>
           <header>
-            <Title text={post.frontmatter.title} />
-            <strong>{post.frontmatter.date}</strong>
+            <h1 className={styles.postTitle}>{post.frontmatter.title}</h1>
           </header>
           <div
+            className={styles.postImage}
             style={{
-              width: "100%",
-              height: "200px",
-              backgroundImage: `Url(https://source.unsplash.com/960x200/?${post.frontmatter.keyword}})`,
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              marginBottom: "30px",
+              backgroundImage: `Url(https://source.unsplash.com/960x300/?${post.frontmatter.keyword}})`
             }}
-          ></div>
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          >
+          </div>
+          <p className={styles.postDate}>{post.frontmatter.date}</p>
+          <section className={styles.post} dangerouslySetInnerHTML={{ __html: post.html }} />
           <hr />
         </article>
 
