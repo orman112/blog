@@ -1,9 +1,10 @@
 ---
 title: Self-Hosting a Ghost Blog with Gatsby
+published: true
 date: "2019-08-09"
 tags: "technology hosting gatsby ghost"
-keyword: "server"
-description: ""
+unsplash-image-id: "aWslrFhs1w4"
+description: "With this being my first post, I thought I'd kick things off with a step-by-step guide into how I got my blog up and running. I'll also dive into the technology powering it behind the scenes."
 ---
 
 _Quick note: Since writing this article, I've actually gone the route of using strictly Gatsby for my blog, but the content below still applies if you're thinking of using Ghost as your headless CMS._

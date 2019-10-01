@@ -33,7 +33,7 @@ class BlogPostTemplate extends React.Component {
           <div
             className={styles.postImage}
             style={{
-              backgroundImage: `Url(https://source.unsplash.com/960x300/?${post.frontmatter.keyword}})`,
+              backgroundImage: `Url(https://source.unsplash.com/${post.frontmatter.unsplash_image_id}/960x300/)`,
             }}
           ></div>
           <p className={styles.postDate}>{post.frontmatter.date}</p>
@@ -56,14 +56,20 @@ class BlogPostTemplate extends React.Component {
           >
             <li>
               {previous && (
-                <Link to={previous.fields.slug} rel="prev">
+                <Link
+                  to={`${previous.fields.basePathPrefix}${previous.fields.slug}`}
+                  rel="prev"
+                >
                   ← {previous.frontmatter.title}
                 </Link>
               )}
             </li>
             <li>
               {next && (
-                <Link to={next.fields.slug} rel="next">
+                <Link
+                  to={`${next.fields.basePathPrefix}${next.fields.slug}`}
+                  rel="next"
+                >
                   {next.frontmatter.title} →
                 </Link>
               )}
@@ -97,7 +103,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
-        keyword
+        unsplash_image_id
       }
     }
   }
