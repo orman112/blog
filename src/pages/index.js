@@ -4,6 +4,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Title from "../components/title"
+import styles from "./home.module.scss"
 
 class BlogIndex extends React.Component {
   render() {
@@ -25,6 +26,7 @@ class BlogIndex extends React.Component {
           areas that interest me as well. I also hope you find them useful and
           learn something along the way!
         </p>
+        <div className={styles.homeImage}></div>
       </Layout>
     )
   }

@@ -14,7 +14,7 @@ class Nav extends React.Component {
       <header className={styles.container}>
         <div className={styles.row}>
           <NavLink to="/" text="HOME" />
-          <NavLink to="/blog" text="ALL POSTS" />
+          <NavLink to="/blog" text="BLOG" />
           <NavLink to="/about" text="ABOUT" />
         </div>
       </header>
