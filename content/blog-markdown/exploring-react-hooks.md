@@ -9,6 +9,11 @@ description: "React Hooks"
 
 Example Code: **https://github.com/pkellner/pluralsight-course-using-react-hooks**
 
+# Intro
+
+- React hooks allow developers to declaritively create functionality in a much more concise manner.
+- Gets rid of the need for things like class constructors, getState and setState to maintain state within components.
+
 # 3 most common:
 
 ## useState
@@ -31,3 +36,13 @@ Example Code: **https://github.com/pkellner/pluralsight-course-using-react-hooks
 - when the functional component completes, a different function associated with useEffect is executed
 - useEffect is a great tool for adding and removing listeners for DOM elements
 - Gives the ability to easily set objects, typically state, when components start and finish
+
+# Less common hooks
+
+## useContext
+
+## useReducer
+
+## useCallback
+
+## useMemo
