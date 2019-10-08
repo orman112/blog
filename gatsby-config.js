@@ -30,25 +30,37 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-images`,
+            resolve: `gatsby-transformer-remark`,
             options: {
-              maxWidth: 590,
-            },
-          },
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
+              // In your gatsby-transformer-remark plugin array
+              plugins: [
+                {
+                  resolve: "gatsby-remark-emojis",
+                  options: {
+                    // Deactivate the plugin globally (default: true)
+                    active: true,
+                    // Add a custom css class
+                    class: "emoji-icon",
+                    // Select the size (available size: 16, 24, 32, 64)
+                    size: 24,
+                    // Add custom styles
+                    styles: {
+                      display: "inline",
+                      margin: "0",
+                      "margin-top": "1px",
+                      position: "relative",
+                      top: "5px",
+                      width: "25px",
+                    },
+                  },
+                },
+              ],
             },
           },
           `gatsby-remark-prismjs`,
-          `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
         ],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-gtag`,
       options: {
@@ -70,8 +82,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `The Frugal Dev`,
+        short_name: `thefrugaldev`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
