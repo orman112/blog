@@ -2,7 +2,7 @@
 title: I've Got Disposable Income, Now What?
 published: true
 date: "2019-10-08"
-tags: "finance budget investing retirement"
+tags: ["finance", "budget", "investing", "retirement"]
 unsplash-image-id: "-8a5eJ1-mmQ"
 description: "It's time for my introductory post on personal finance. This site is called the <strong><em>frugal</em></strong> dev, right? In this post, I'll give you a quick, general guideline with steps to take to get your personal finances in order. I go through the different stages of saving and investing, and highlight when it's a good time to move from one stage to the next. Hope you've got your spreadsheets ready!"
 ---
