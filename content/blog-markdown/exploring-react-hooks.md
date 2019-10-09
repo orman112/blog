@@ -22,6 +22,7 @@ Example Code: **https://github.com/pkellner/pluralsight-course-using-react-hooks
 - Typically used to track only a single javascript object or value
 - React team recommends multiple useState calls to update primitive types, rather than one call to update a complex JavaScript object
 - Let's the developer track state across components very easily
+- Initialized with an array (getter and setter) and, if desired, a default value is specified as an argument to useState()
 
 ## useRef
 
@@ -39,10 +40,24 @@ Example Code: **https://github.com/pkellner/pluralsight-course-using-react-hooks
 
 # Less common hooks
 
+- These additional hooks allow for improved performance, global configuration support, and cleaner/more concise code.
+-
+
 ## useContext
+
+-
 
 ## useReducer
 
 ## useCallback
 
 ## useMemo
+
+# other notes
+
+- React Hooks can only be called from functional React components
+- Within those functional components, hooks may only be called from the top level
+  - Can't be called inside loops, conditional logic, or nested functions
+  - The reason ^^ is that React counts on hooks being called in the same order, every time
+  - If they were called within functions or conditional logic, this order could not be guaranteed
+  - ESLint Plugin (npm install eslint-plugin-react-hooks) warns the developer if React hooks are being used incorrectly
