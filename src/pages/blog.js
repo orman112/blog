@@ -1,17 +1,32 @@
 import React from "react"
-import { graphql } from "gatsby"
-
+import { graphql, navigate } from "gatsby"
+//Components
 import Articles from "../components/articles"
+import TagSelection from "../components/tag-selection"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const Blog = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
   const siteTitle = data.site.siteMetadata.title
+  const allTags = posts.reduce((acc, post) => {
+    return acc.concat(post.node.frontmatter.tags)
+  }, [])
+  const uniqueTags = Array.from(new Set(allTags))
+
+  const handleTagSelection = event => {
+    navigate(`tags/${event.target.value}`)
+  }
 
   return (
     <Layout location={data.location} title={siteTitle}>
       <SEO title="Blog" />
+
+      <TagSelection
+        handleTagSelection={handleTagSelection}
+        uniqueTags={uniqueTags}
+      />
+
       <Articles posts={posts} />
     </Layout>
   )
@@ -42,6 +57,7 @@ export const pageQuery = graphql`
             title
             description
             unsplash_image_id
+            tags
           }
         }
       }
