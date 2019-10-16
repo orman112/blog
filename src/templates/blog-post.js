@@ -56,20 +56,14 @@ class BlogPostTemplate extends React.Component {
           >
             <li>
               {previous && (
-                <Link
-                  to={`${previous.fields.basePathPrefix}${previous.fields.slug}`}
-                  rel="prev"
-                >
+                <Link to={`${previous.fields.path}`} rel="prev">
                   ← {previous.frontmatter.title}
                 </Link>
               )}
             </li>
             <li>
               {next && (
-                <Link
-                  to={`${next.fields.basePathPrefix}${next.fields.slug}`}
-                  rel="next"
-                >
+                <Link to={`${next.fields.path}`} rel="next">
                   {next.frontmatter.title} →
                 </Link>
               )}

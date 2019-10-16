@@ -22,9 +22,7 @@ class Articles extends React.Component {
                 {node.frontmatter.date}
               </small>
               <h3 className={styles.articleHeadline}>
-                <Link to={`${node.fields.basePathPrefix}${node.fields.slug}`}>
-                  {title}
-                </Link>
+                <Link to={`${node.fields.path}`}>{title}</Link>
               </h3>
               <p
                 className={styles.articleDescription}
