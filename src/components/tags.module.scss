@@ -1,0 +1,10 @@
+@import "../styles/global";
+
+.tag {
+  background-color: $navy;
+  color: $white;
+  font-size: $font-size-small;
+  margin: 0 5px;
+  padding: 0.3em;
+  cursor: default;
+}

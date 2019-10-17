@@ -1,24 +1,16 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import { Disqus, CommentCount } from "gatsby-plugin-disqus"
-
+import { graphql } from "gatsby"
+//Components
 import Layout from "../components/layout"
+import Tags from "../components/tags"
 import SEO from "../components/seo"
+//Styles
 import styles from "./blog-post.module.scss"
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next } = this.props.pageContext
-
-    //Disqus integration
-    const disqusConfig = {
-      url: `${this.props.data.site.siteMetadata.siteUrl +
-        this.props.location.pathname}`,
-      identifier: post.id,
-      title: post.title,
-    }
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -37,42 +29,13 @@ class BlogPostTemplate extends React.Component {
             }}
           ></div>
           <p className={styles.postDate}>{post.frontmatter.date}</p>
+          <Tags tags={post.frontmatter.tags} />
           <section
             className={styles.post}
             dangerouslySetInnerHTML={{ __html: post.html }}
           />
           <hr />
         </article>
-
-        <nav>
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
-            <li>
-              {previous && (
-                <Link to={`${previous.fields.path}`} rel="prev">
-                  ← {previous.frontmatter.title}
-                </Link>
-              )}
-            </li>
-            <li>
-              {next && (
-                <Link to={`${next.fields.path}`} rel="next">
-                  {next.frontmatter.title} →
-                </Link>
-              )}
-            </li>
-          </ul>
-        </nav>
-
-        <CommentCount config={disqusConfig} placeholder={"..."} />
-        <Disqus config={disqusConfig} />
       </Layout>
     )
   }
@@ -98,6 +61,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         description
         unsplash_image_id
+        tags
       }
     }
   }

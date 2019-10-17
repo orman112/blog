@@ -39,8 +39,9 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors
   }
 
-  // Create blog posts pages.
+  //pages to create with templates
   const posts = result.data.postsRemark.edges
+  const categories = result.data.categoryGroup.group
 
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
@@ -56,8 +57,6 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-
-  const categories = result.data.categoryGroup.group
 
   categories.forEach(category => {
     createPage({

@@ -1,4 +1,6 @@
 import React from "react"
+import string from "lodash/string"
+
 import { Link } from "gatsby"
 
 const CategoriesNav = ({ posts }) => {
@@ -8,12 +10,18 @@ const CategoriesNav = ({ posts }) => {
 
   return (
     <>
-      <h2>Filter by Category:</h2>
-      {Array.from(categories).map(cat => {
+      <span>Filter by Category:</span>{" "}
+      {Array.from(categories).map((cat, index, array) => {
+        let isLastItem = index === array.length - 1
+        console.log(`${cat} ${isLastItem}`)
+
         return (
-          <Link key={cat} to={`category/${cat}`}>
-            {cat}
-          </Link>
+          <>
+            <Link key={cat} to={`category/${cat}`}>
+              {string.capitalize(cat)}
+            </Link>
+            {isLastItem ? "" : " | "}
+          </>
         )
       })}
     </>
