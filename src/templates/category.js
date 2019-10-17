@@ -5,26 +5,24 @@ import { graphql } from "gatsby"
 import Articles from "../components/articles"
 import Layout from "../components/layout"
 
-const Tags = ({ pageContext, data }) => {
-  const { tag } = pageContext
+const Category = ({ pageContext, data }) => {
+  const { category } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
-  const tagHeader = `${totalCount} post${
+  const categoryHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
-  } tagged with ${tag}`
-
-  console.log(pageContext)
+  } under ${category}`
 
   return (
     <Layout location={data.location}>
-      <h1>{tagHeader}</h1>
+      <h1>{categoryHeader}</h1>
       <Articles posts={edges} />
     </Layout>
   )
 }
 
-Tags.propTypes = {
+Category.propTypes = {
   pageContext: PropTypes.shape({
-    tag: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
   }),
   data: PropTypes.shape({
     totalCount: PropTypes.number.isRequired,
@@ -43,12 +41,14 @@ Tags.propTypes = {
   }),
 }
 
-export default Tags
+export default Category
 export const pageQuery = graphql`
-  query($tag: String) {
+  query($category: String) {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] }, published: { eq: true } } }
+      filter: {
+        frontmatter: { category: { in: [$category] }, published: { eq: true } }
+      }
     ) {
       totalCount
       edges {

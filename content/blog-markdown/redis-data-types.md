@@ -5,6 +5,7 @@ date: "2019-09-25"
 tags: ["technology", "redis", "caching", "cache"]
 unsplash-image-id: "t0SlmanfFcg"
 description: "I've been interested in learning more about Redis, and when work presented me the opportunity, I jumped right in. In this post, I'll explore some of the common data types in Redis and when it makes sense to use each. I'll also provide some funny, real-world examples."
+category: "technology"
 ---
 
 [Redis](https://redis.io/) is an open-source, in-memory data store. Although there are many use cases, including acting as a message broker, Redis is commonly used as a caching mechanism. I've recently been looking into utilizing this caching service at work. With that in mind, I figured I would write up a quick post about some of the more common data types supported in Redis, and when you might expect to use them.

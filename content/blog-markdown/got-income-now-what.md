@@ -5,6 +5,7 @@ date: "2019-10-08"
 tags: ["finance", "budget", "investing", "retirement"]
 unsplash-image-id: "-8a5eJ1-mmQ"
 description: "It's time for my introductory post on personal finance. This site is called the <strong><em>frugal</em></strong> dev, right? In this post, I'll give you a quick, general guideline with steps to take to get your personal finances in order. I go through the different stages of saving and investing, and highlight when it's a good time to move from one stage to the next. Hope you've got your spreadsheets ready!"
+category: "finance"
 ---
 
 I want to preface this post with the notice that I am by no means a professional financial planner and this post should be taken as a guideline, not a hard and fast rule. Everyone's situation in life is different, and if you are worried about your own financial wellbeing, you should consult a professional. With that being said, I felt this would be a great intro post into the financial side of my blog. Personal finance is a topic I've become really interested in over the past couple years and I continue to learn something new in the field almost daily it seems. So, I figured what better way to teach others than to share my own personal learnings along the way! This post is aimed at younger adults just fresh on their financial journey, but could absolutely be used as a guided path for people of all ages who just want to get their finances in order. Let's dig in.

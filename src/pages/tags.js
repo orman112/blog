@@ -5,6 +5,7 @@ import kebabCase from "lodash/kebabCase"
 // Components
 import { Helmet } from "react-helmet"
 import { Link, graphql } from "gatsby"
+
 const TagsPage = ({
   data: {
     allMarkdownRemark: { group },
@@ -29,6 +30,7 @@ const TagsPage = ({
     </div>
   </div>
 )
+
 TagsPage.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
@@ -46,7 +48,9 @@ TagsPage.propTypes = {
     }),
   }),
 }
+
 export default TagsPage
+
 export const pageQuery = graphql`
   query {
     site {

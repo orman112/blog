@@ -2,9 +2,10 @@
 title: Exploring React Hooks
 published: false
 date: ""
-tags: ["technology", "javascript", "react", "hooks"]
+tags: ["javascript", "react", "hooks"]
 unsplash-image-id: "TxzjVxnWYq4"
 description: "React Hooks"
+category: "technology"
 ---
 
 Example Code: **https://github.com/pkellner/pluralsight-course-using-react-hooks**
