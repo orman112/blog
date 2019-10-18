@@ -46,7 +46,17 @@ Example Code: **https://github.com/pkellner/pluralsight-course-using-react-hooks
 
 ## useContext
 
--
+- Makes it trivial to access context in any functional components
+- Common use case for this hook is storing config information/data and having it available in any functional component within the app
+
+### context API
+
+- Creating a context (context API) came before hooks. This hook (useContext) is just used to _consume_ the context that is created.
+- React v16.3.0 released context API
+  - Create a shared context at some level, where any component below that level has access to that shared context
+  - Makes accessing data in functions in any place your React app ver simple and straight forward.
+  - Removes the necessity to manually pass data between components through props (Prop drilling, Higher Order Components anti-patterns -- class inheritence to pass data around)
+- Context API has a Provider that accepts a value of any Javascript object
 
 ## useReducer
 
