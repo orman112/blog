@@ -60,9 +60,17 @@ Example Code: **https://github.com/pkellner/pluralsight-course-using-react-hooks
 
 ## useReducer
 
+- useState is built on top of useReducer (with a very thin layer between them)
+- A reducer is simply a function that takes in a previous state as the first param and an action as the 2nd param, and returns a new state.
+-
+
 ## useCallback
 
+- Along with useMemo, helps with performace of your React apps
+
 ## useMemo
+
+- Along with useMemo, helps with performace of your React apps
 
 # other notes
 
