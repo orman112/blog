@@ -62,17 +62,23 @@ Example Code: **https://github.com/pkellner/pluralsight-course-using-react-hooks
 
 - useState is built on top of useReducer (with a very thin layer between them)
 - A reducer is simply a function that takes in a previous state as the first param and an action as the 2nd param, and returns a new state.
--
+- Allows for a nice, elegant solution to organize state management.
 
 ## useCallback
 
-- Along with useMemo, helps with performace of your React apps
+- Along with useMemo, helps with performace of your React apps (using memoization - apply definition)
+  - Memoization - optimization technique used to primarily speed up applications by returning cached results
+- Caches a function
 
 ## useMemo
 
-- Along with useMemo, helps with performace of your React apps
+- Along with useMemo, helps with performace of your React apps (using memoization - apply definition)
+- Memoizes a value on the client (React app)
+- The second parameter to the useMemo hook is the dependency array. If any of these values change, the memoized version is dumped and the values are re-rendered.
 
-# other notes
+## Common patterns for using React hooks
+
+## other notes
 
 - React Hooks can only be called from functional React components
 - Within those functional components, hooks may only be called from the top level
