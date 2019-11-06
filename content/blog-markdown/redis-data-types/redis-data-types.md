@@ -2,7 +2,7 @@
 title: Getting Familiar with Redis Data Types
 published: true
 date: "2019-09-25"
-tags: ["technology", "redis", "caching", "cache"]
+tags: ["technology", "redis", "caching", "cache", "overview"]
 unsplash-image-id: "t0SlmanfFcg"
 description: "I've been interested in learning more about Redis, and when work presented me the opportunity, I jumped right in. In this post, I'll explore some of the common data types in Redis and when it makes sense to use each. I'll also provide some funny, real-world examples."
 category: "technology"

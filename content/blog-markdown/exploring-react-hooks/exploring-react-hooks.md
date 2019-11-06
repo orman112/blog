@@ -2,7 +2,7 @@
 title: Exploring React Hooks
 published: false
 date: ""
-tags: ["javascript", "react", "hooks"]
+tags: ["javascript", "react", "hooks", "overview"]
 unsplash-image-id: "TxzjVxnWYq4"
 description: "React Hooks"
 category: "technology"
