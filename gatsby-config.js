@@ -11,6 +11,7 @@ module.exports = {
     },
   },
   plugins: [
+    "gatsby-plugin-sharp",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -28,7 +29,17 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [`gatsby-remark-emoji`, `gatsby-remark-prismjs`],
+        plugins: [
+          `gatsby-remark-emoji`,
+          `gatsby-remark-prismjs`,
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 1200,
+              linkImagesToOriginal: false,
+            },
+          },
+        ],
       },
     },
     {
