@@ -52,10 +52,6 @@ function SEO({ description, lang, meta, title, imageSrc, url }) {
           content: imageSrc,
         },
         {
-          property: `og:url`,
-          content: url,
-        },
-        {
           property: `og:description`,
           content: metaDescription,
         },
