@@ -5,7 +5,11 @@ const Tags = ({ tags }) => {
   return (
     <p className={styles.tags}>
       {tags.map(tag => {
-        return <span className={styles.tag}>#{tag}</span>
+        return (
+          <span key={tag} className={styles.tag}>
+            #{tag}
+          </span>
+        )
       })}
     </p>
   )

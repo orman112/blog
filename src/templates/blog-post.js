@@ -5,40 +5,69 @@ import Layout from "../components/layout"
 import Tags from "../components/tags"
 import SEO from "../components/seo"
 //Styles
-import styles from "./blog-post.module.scss"
+import "./blog-post.scss"
+import Share from "../components/share"
 
-class BlogPostTemplate extends React.Component {
-  render() {
-    const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
+const BlogPostTemplate = ({ data, location }) => {
+  const {
+    post: {
+      html,
+      excerpt,
+      frontmatter: { title, tags, description, unsplash_image_id, date },
+      fields: { path },
+    },
+    site: {
+      siteMetadata: {
+        siteUrl,
+        social: { twitterHandle },
+      },
+    },
+  } = data
+  const heroImage = `https://source.unsplash.com/${unsplash_image_id}/960x300/`
 
-    return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO
-          title={post.frontmatter.title}
-          description={post.frontmatter.description || post.excerpt}
-        />
-        <article>
-          <header>
-            <h1 className={styles.postTitle}>{post.frontmatter.title}</h1>
-          </header>
-          <div
-            className={styles.postImage}
-            style={{
-              backgroundImage: `Url(https://source.unsplash.com/${post.frontmatter.unsplash_image_id}/960x300/)`,
-            }}
-          ></div>
-          <p className={styles.postDate}>{post.frontmatter.date}</p>
-          <Tags tags={post.frontmatter.tags} />
-          <section
-            className={styles.post}
-            dangerouslySetInnerHTML={{ __html: post.html }}
-          />
-          <hr />
-        </article>
-      </Layout>
-    )
-  }
+  return (
+    <Layout location={location} title={title}>
+      <SEO
+        title={title}
+        description={description || excerpt}
+        imageSrc={heroImage}
+      />
+      <article>
+        <header>
+          <h1 className="post-title">{title}</h1>
+        </header>
+        <div
+          className="post-image"
+          style={{
+            backgroundImage: `Url(${heroImage})`,
+          }}
+        ></div>
+        <p className="post-date">{date}</p>
+        <section className="post" dangerouslySetInnerHTML={{ __html: html }} />
+        <div className="post-meta">
+          {tags && tags.length ? (
+            <div className="post-meta__block">
+              <span className="title">Tags:</span>
+              <Tags tags={tags} />
+            </div>
+          ) : null}
+          <div className="post-meta__block">
+            <span className="title">Share:</span>
+            <Share
+              socialConfig={{
+                twitterHandle,
+                config: {
+                  url: `${siteUrl}${path}`,
+                  title,
+                },
+              }}
+              tags={tags}
+            />
+          </div>
+        </div>
+      </article>
+    </Layout>
+  )
 }
 
 export default BlogPostTemplate
@@ -50,12 +79,19 @@ export const pageQuery = graphql`
         title
         author
         siteUrl
+        social {
+          twitterHandle
+        }
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    post: markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt
       html
+      fields {
+        path
+        slug
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")

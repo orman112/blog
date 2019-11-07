@@ -25,7 +25,9 @@ a {
 .button {
   background-color: $navy;
   border-radius: 20px;
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   font-family: $font-sans-serif;
   font-size: $font-size-xsmall;
   text-transform: uppercase;
@@ -36,6 +38,7 @@ a {
   line-height: 30px;
   padding: 2px 12px;
   margin-right: 10px;
+  cursor: pointer;
 
   margin-bottom: 10px;
 

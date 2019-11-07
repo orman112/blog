@@ -8,9 +8,9 @@ const Footer = ({ children }) => {
       site {
         siteMetadata {
           social {
-            twitter
-            github
-            linkedIn
+            twitterHandle
+            githubUserName
+            linkedInSuffix
           }
         }
       }

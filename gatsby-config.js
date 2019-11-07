@@ -5,13 +5,13 @@ module.exports = {
     description: `A blog discussing topics around personal finance and technology.`,
     siteUrl: `https://thefrugal.dev`,
     social: {
-      twitter: `thefrugaldev`,
-      linkedIn: `tfd`,
-      github: `thefrugaldev`,
+      twitterHandle: `thefrugaldev`,
+      linkedInSuffix: `tfd`,
+      githubUserName: `thefrugaldev`,
     },
   },
   plugins: [
-    "gatsby-plugin-sharp",
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -31,9 +31,16 @@ module.exports = {
       options: {
         plugins: [
           `gatsby-remark-emoji`,
-          `gatsby-remark-prismjs`,
           {
-            resolve: "gatsby-remark-images",
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: "language-",
+              inlineCodeMarker: "±",
+              aliases: {},
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1200,
               linkImagesToOriginal: false,

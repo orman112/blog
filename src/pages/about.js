@@ -66,9 +66,9 @@ export const pageQuery = graphql`
       siteMetadata {
         author
         social {
-          twitter
-          github
-          linkedIn
+          twitterHandle
+          githubUserName
+          linkedInSuffix
         }
         title
       }
