@@ -2,7 +2,7 @@
 title: Self-Hosting a Ghost Blog with Gatsby
 published: true
 date: "2019-08-09"
-tags: ["technology", "hosting", "gatsby", "ghost", "walkthrough"]
+tags: ["hosting", "gatsby", "ghost", "walkthrough"]
 unsplash-image-id: "aWslrFhs1w4"
 description: "With this being my first post, I thought I'd kick things off with a step-by-step guide into how I got my blog up and running. I'll also dive into the technology powering it behind the scenes."
 category: "technology"
