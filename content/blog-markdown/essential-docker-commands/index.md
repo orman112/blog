@@ -33,9 +33,16 @@ EXAMPLE
 
 - `docker run -d --net=isolated_network --name nodeapp -p 3000:3000 cormandev/node`
 
+`docker exec {CONTAINER_NAME} {CMD}`
+
+EXAMPLE
+
+- `docker exec nodeapp node dbSeeder.js`
+
 `docker ps` -- list all running containers
 `docker ps -a` -- list any containers (running or otherwise)
 `docker rm {CONTAINER_ID}`
+`docker rm -f $(docker ps -a -q)` -- remove all containers [-f force, $() eval, -q quiet]
 
 ## Volumes - define
 
