@@ -99,7 +99,7 @@ In order to remove a container, along with any associated volumes, you'll want t
 docker rm -v {CONTAINER_ID}
 ```
 
-If you accidently removed a container, and forgot to remove its associated volumes (which never happens to me :wink:), there is a [quick and easy command](https://docs.docker.com/engine/reference/commandline/volume_prune/) to remove any unused volumes that may be stuck out in purgatory.
+If you accidentally removed a container, and forgot to remove its associated volumes (which never happens to me :wink:), there is a [quick and easy command](https://docs.docker.com/engine/reference/commandline/volume_prune/) to remove any unused volumes that may be stuck out in purgatory.
 
 ```bash
 docker volume prune
@@ -134,4 +134,4 @@ docker-compose rm -v
 
 ## Extensions
 
-Show screen grab
+I hope the above commands can serve as a reference point for others as I'm sure it will for me when I inevitably forget them. As a side note, I wanted to end this post by suggesting a very helpful extension for Visual Studio Code. If you haven't already, I suggest downloading the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) provided by Microsoft. This extension gives you a GUI to really help visualize what containers, volumes, images, and registries are currently enabled on your local machine.
