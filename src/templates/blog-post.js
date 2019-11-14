@@ -7,10 +7,12 @@ import SEO from "../components/seo"
 //Styles
 import "./blog-post.scss"
 import Share from "../components/share"
+import Disqus from "disqus-react"
 
 const BlogPostTemplate = ({ data, location }) => {
   const {
     post: {
+      id,
       html,
       excerpt,
       frontmatter: { title, tags, description, unsplash_image_id, date },
@@ -19,10 +21,19 @@ const BlogPostTemplate = ({ data, location }) => {
     site: {
       siteMetadata: {
         siteUrl,
-        social: { twitterHandle },
+        social: { twitterHandle, disqusShortName },
       },
     },
   } = data
+  const disqusConfig = {
+    shortname: disqusShortName,
+    config: {
+      url: `${siteUrl}${path}`,
+      title,
+      identifier: id,
+    },
+    twitterHandle,
+  }
   const heroImage = `https://source.unsplash.com/${unsplash_image_id}/960x300/`
 
   return (
@@ -66,6 +77,7 @@ const BlogPostTemplate = ({ data, location }) => {
           </div>
         </div>
       </article>
+      <Disqus.DiscussionEmbed {...disqusConfig} />
     </Layout>
   )
 }
@@ -81,6 +93,7 @@ export const pageQuery = graphql`
         siteUrl
         social {
           twitterHandle
+          disqusShortName
         }
       }
     }

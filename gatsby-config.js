@@ -8,6 +8,7 @@ module.exports = {
       twitterHandle: `thefrugaldev`,
       linkedInSuffix: `tfd`,
       githubUserName: `thefrugaldev`,
+      disqusShortName: `thefrugaldev`,
     },
   },
   plugins: [
@@ -58,12 +59,6 @@ module.exports = {
         head: true,
         // enable ip anonymization
         anonymize: false,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-disqus`,
-      options: {
-        shortname: `thefrugaldev`,
       },
     },
     `gatsby-plugin-feed`,
