@@ -8,12 +8,20 @@
     margin-top: 4rem;
     opacity: 0.7;
   }
+
   h3 {
     opacity: 0.7;
     margin-bottom: 0.3rem;
   }
+
   p {
     margin-top: 0.5rem;
+  }
+
+  blockquote {
+    background-color: #e8e8e8;
+    border-left: 5px solid #dbdbdb;
+    padding: 1.25rem 1.5rem;
   }
 }
 

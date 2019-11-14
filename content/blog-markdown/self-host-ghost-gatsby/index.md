@@ -8,7 +8,7 @@ description: "With this being my first post, I thought I'd kick things off with 
 category: "technology"
 ---
 
-_Quick note: Since writing this article, I've actually gone the route of using strictly Gatsby for my blog, but the content below still applies if you're thinking of using Ghost as your headless CMS._
+> _**Quick note:** Since writing this article, I've actually gone the route of using strictly Gatsby for my blog, but the content below still applies if you're thinking of using Ghost as your headless CMS._
 
 I've finally done it, I've made the plunge and decided to create my own personal blog. This blog will mostly cover financial and technical topics that I find interesting. These could be topics that are new to me, or ones that I've been researching and using in my own personal life/career.
 

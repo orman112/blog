@@ -16,7 +16,7 @@ The first thing you'll want to do is configure git to use the [mergetool](https:
 
 So, the first few commands that we'll run are:
 
-```
+```bash
 git config merge.tool vimdiff
 git config merge.conflictstyle diff3
 git config mergetool.prompt false

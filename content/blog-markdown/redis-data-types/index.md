@@ -18,7 +18,7 @@ If you are already somewhat familiar with caching, you'll understand that most v
 
 ### **Example**
 
-```
+```bash
 > set key some-value
 OK
 
@@ -45,7 +45,7 @@ Strings are useful when you need to encode a lot of data in a little amount spac
 
 ### **Example**
 
-```
+```bash
 > set thefrugaldev awesome
 OK
 
@@ -63,7 +63,7 @@ A very common use case for Redis Lists is the social network example. [Twitter u
 
 ### **Example**
 
-```
+```bash
 # Create a new list
 # todolist: "cut the grass"
 > lpush todolist "cut the grass"
@@ -95,7 +95,7 @@ Sets are great for identifying relationships between entities. For example, keep
 
 ### **Examples**
 
-```
+```bash
 # Create a set for an amazing basketball team
 > sadd "chicago bulls" "michael jordan" "scottie pippen" "dennis rodman" "luc longley" "ron harper"
 (integer) 5
@@ -128,7 +128,7 @@ researching is inventory information for an e-commerce site.
 
 ### **Examples**
 
-```
+```bash
 # Create a Hash and set multiple values at once
 > hmset developer:001 "username" "thefrugaldev" "height" "5'10" "favorite beer" "bourbon"
 OK
@@ -161,7 +161,7 @@ One of the best examples I've come across in relation to using sorted sets comes
 
 ### **Example**
 
-```
+```bash
 # Create a sorted set with multiple members
 > zadd "college football team rankings" 1 "georgia bulldogs" 3 "alabama crimson tide" 130 "florida gators" 2 "clemson tigers" 9 "notre dame" 6 "oklahoma sooners" 7 "auburn tigers" 5 "ohio state buckeyes" 8 "wisconsin" 4 "lsu tigers"
 (integer) 10
