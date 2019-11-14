@@ -22,71 +22,115 @@ The help command will give you a list of available commands within the Docker CL
 
 In Docker, an _image_ is a set of instructions or commands used to create a _container_ (more of those later). It is immutable in nature, so once an image is built, it must either be re-created or deleted, using a new set of instructions. The instructions that Docker images are built from are known as [Dockerfiles](https://docs.docker.com/engine/reference/builder/).
 
-In order to build these images, a simple command can be used in your terminal:
+In order to build these images, a [simple command](https://docs.docker.com/engine/reference/commandline/build/) can be used in your terminal:
 
-`docker build -f {DOCKER_FILE_NAME} -t {IMAGE_TAG} .` --build docker image (specify params)
+```bash
+docker build -f {DOCKER_FILE_NAME} -t {IMAGE_TAG} .
+```
 
 In the code above, `docker build` is executed with a couple of arguments to build a Docker _image_. The first argument specifies which Dockerfile to use to build the image, and the second argument specifies the tag, or name, of the image that you are building. So, the above command could look something like this:
 
-- `docker build -f node.dockerfile -t thefrugaldev/node .`
+```bash
+docker build -f node.dockerfile -t thefrugaldev/node .
+```
 
-Once you've got a few images created, you can list them out using the following command:
+Once you've got a few images created, you can list them out using the [following command](https://docs.docker.com/engine/reference/commandline/images/):
 
-`docker images`
+```bash
+docker images
+```
 
 This will list out all top level images, including properties such as their tag, the date they were created, the size, and their image id. The output in your terminal should look something like this, after execution.
 
 ![Docker Images Command](./docker-images.png "docker images cli command")
 
-If you find that you have too many images or decide you don't need a specific image anymore, you can always remove a specific image by providing the image id as an argument to the following command.
+If you find that you have too many images or decide you don't need a specific image anymore, you can always remove a specific image by providing the image id as an argument to the [following command](https://docs.docker.com/engine/reference/commandline/rmi/).
 
-`docker rmi {IMAGE ID}`
+```bash
+docker rmi {IMAGE ID}
+```
 
 ## Containers
 
 Containers are probably what brought you to Docker in the first place. The word gets thrown around a lot when mentioning Docker, but what is a container? From a high level, a container is similar to an image, but its state can change and is built at runtime. Containers, unlike images, have a writable persistence layer, that can be added to or modified. When a container is deleted, so too is this persistence layer. So, in this sense, multiple containers can share a single image, and still have an isolated persistence layer.
 
-To run a container, simply specify which image you want to run. The terminal will then return the container id of the newly created container.
+To [run a container](https://docs.docker.com/engine/reference/commandline/run), simply specify which image you want to run. The terminal will then return the container id of the newly created container.
 
-`docker run -d thefrugaldev/node`
+```bash
+docker run -d thefrugaldev/node
+```
 
-There are quite a few arguments that you can pass to the previous command:
+There are quite a few [options](https://docs.docker.com/engine/reference/commandline/run/#options) that you can pass to the previous command:
 
-`docker run -d --net {NETWORK} --name {CONTAINER_ALIAS} -p {INTERNAL_PORT:EXTERNAL_PORT} {IMAGE_TO_RUN}`
+```bash
+docker run -d --net {NETWORK} --name {CONTAINER_ALIAS} -p {LOCAL_PORT:HOST_PORT} {IMAGE_TO_RUN}
+```
 
-By specifying `-d` you are telling Docker to run in detach, or background, mode. In Docker, you can set up an isolated network with the `--net` argument, and containers within that network can communicate with each other.
+By specifying `-d` you are telling Docker to run in detach, or background, mode. In Docker, you can set up an isolated network with the `--net` argument, and containers within that network can communicate with each other. The `--name` allows you to assign a name to the container, making it easier to maintain the container after it's up and running. The `-p` flag allows you to bind an external port on your local machine to an internal port on the host machine that is running the container. Finally, you can provide the image to run like we did earlier. An example of this command might look something like this.
 
-EXAMPLE
+```bash
+docker run -d --net isolated_network --name my_funky_new_container -p 8080:5000 thefrugaldev/aspnetcore
+```
 
-- `docker run -d --net=isolated_network --name nodeapp -p 3000:3000 cormandev/node`
+Sometimes, you need to [execute a command](https://docs.docker.com/engine/reference/commandline/exec/) once an application is up and running. For this, Docker allows the `exec` command to be run within the context of a specific container.
 
-`docker exec {CONTAINER_NAME} {CMD}`
+```bash
+docker exec {CONTAINER_NAME} {CMD}
+```
 
-EXAMPLE
+Once you've got a few containers up and running, feel free to run any of the following commands to [visualize](https://docs.docker.com/engine/reference/commandline/ps/) and [remove](https://docs.docker.com/engine/reference/commandline/rm/) any containers running on your machine.
 
-- `docker exec nodeapp node dbSeeder.js`
+```bash
+docker ps #list all running containers
+docker ps -a #list any containers (running or otherwise)
+docker rm {CONTAINER_ID} #remove a specific container by id
+docker rm -f $(docker ps -a -q)
+```
 
-`docker ps` -- list all running containers
-`docker ps -a` -- list any containers (running or otherwise)
-`docker rm {CONTAINER_ID}`
-`docker rm -f $(docker ps -a -q)` -- remove all containers [-f force, $() eval, -q quiet]
+That final command is an interesting one. It's forcing docker to remove containers with the `-f` flag. The last part of that command `$()` tells Docker to evaluate an expression. Here, we're telling Docker to find all containers (running or otherwise) in quiet (`-q`) mode (only display numeric IDs) and return what was found. The entirety of the command essentially tells Docker to remove all containers (running or otherwise).
 
-## Volumes - define
+## Volumes
 
-For larger write operations, containers can have **_volumes_** associated with them as well.
+For larger write operations, containers can have **_volumes_** associated with them as well. You can think of volumes like a symlink that points to a virtual directory that is managed by Docker. When you stop, or even remove, a container, the volume remains in-tact unless otherwise specified. This allows volumes to be safely shared by multiple containers.
 
-`docker volume prune` --removes any volumes not currently being used by containers
+In order to remove a container, along with any associated volumes, you'll want to [use the following command](https://docs.docker.com/engine/reference/commandline/rm/) (which you've seen before) with the specified `-v` option.
+
+```bash
+docker rm -v {CONTAINER_ID}
+```
+
+If you accidently removed a container, and forgot to remove its associated volumes (which never happens to me :wink:), there is a [quick and easy command](https://docs.docker.com/engine/reference/commandline/volume_prune/) to remove any unused volumes that may be stuck out in purgatory.
+
+```bash
+docker volume prune
+```
 
 ## Docker Compose - define
 
-`docker-compose build`
-`docker-compose up -d`
-`docker-compose down --rmi all --volumes`
-`docker-compose logs` -- good if you run in daemon mode
-`docker-compose ps`
-`docker-compose start`
-`docker-compose stop`
-`docker-compose rm`
+Once you get comfortable with Docker creating containers from individual images can become tedious and unmaintainable. If that's the case, you should look into [Docker Compose](https://docs.docker.com/compose/). According to their docs, compose is a _"tool for defining and running multi-container Docker applications"_. To take advantage of docker-compose, you'll need to create a [yaml](https://yaml.org/) file that informs Docker of necessary information to create containers, including the docker file to use, networks to create, ports to use, etc.
+
+I wont go into too much detail around the docker-compose cli, but I've provided a [list of common commands](https://docs.docker.com/compose/reference/overview/) that I think will be useful on your journey.
+
+```bash
+docker-compose build
+# build the images specified in the docker-compose.yml file
+docker-compose up -d
+# builds, (re)creates, starts, and attaches to containers for a service
+# the -d flag tells docker-compose to run in detach mode
+docker-compose down --rmi all --volumes
+# stops and removes containers, their networks, volumes and images created by the up command
+docker-compose logs
+# displays log outputs. very useful if you run the up command in detach mode
+docker-compose ps
+# list all currently running containers
+docker-compose start
+# starts existing containers
+docker-compose stop
+# stop running containers without removing them
+docker-compose rm -v
+# removes any stopped containers
+# the -v flag also removes any attached volumes
+```
 
 ## Extensions
 
