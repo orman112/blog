@@ -1,11 +1,5 @@
-$brand-colors: (
-  facebook: #3b5998,
-  twitter: #1da1f2,
-  googleplus: #dd4b39,
-  linkedin: #0077b5,
-  reddit: #ff4500,
-  whatsapp: #128c7e,
-);
+@import "../styles/shared/buttons.scss";
+@import "../styles/variables.scss";
 
 .post-social {
   .button {

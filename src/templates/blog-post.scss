@@ -1,4 +1,4 @@
-@import "../styles/global";
+@import "../styles/variables";
 
 .post {
   border-bottom: $bottom-border;
@@ -26,10 +26,9 @@
 }
 
 .post-title {
+  font-weight: $font-weight;
   font-size: $font-size-large;
-  color: $blue-grey;
   text-align: center;
-  border-bottom: 2px solid rgba(34, 47, 62, 0.6);
 }
 
 .post-date {

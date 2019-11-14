@@ -1,4 +1,4 @@
-@import "../styles/global";
+@import "../styles/variables";
 
 .about-profile {
   display: flex;
@@ -31,7 +31,7 @@
 
   .social-link {
     color: $blue;
-    opacity: .75;
+    opacity: 0.75;
 
     &:hover {
       opacity: 1;
