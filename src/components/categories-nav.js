@@ -13,11 +13,10 @@ const CategoriesNav = ({ posts }) => {
       <span>Filter by Category:</span>{" "}
       {Array.from(categories).map((cat, index, array) => {
         let isLastItem = index === array.length - 1
-        console.log(`${cat} ${isLastItem}`)
 
         return (
           <>
-            <Link key={cat} to={`category/${cat}`}>
+            <Link key={cat} to={`/category/${cat}`}>
               {string.capitalize(cat)}
             </Link>
             {isLastItem ? "" : " | "}

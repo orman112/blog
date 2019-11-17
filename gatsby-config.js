@@ -4,6 +4,7 @@ module.exports = {
     author: `Clayton Orman`,
     description: `A blog discussing topics around personal finance and technology.`,
     siteUrl: `https://thefrugal.dev`,
+    siteImg: "./content/assets/profile-pic.jpg",
     social: {
       twitterHandle: `thefrugaldev`,
       linkedInSuffix: `tfd`,

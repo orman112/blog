@@ -10,9 +10,9 @@ import Layout from "../components/layout"
 const Category = ({ pageContext, data }) => {
   const { category } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
-  const categoryHeader = `${string.capitalize(category)} post${
+  const categoryHeader = `${totalCount} ${string.capitalize(category)} Post${
     totalCount === 1 ? "" : "s"
-  } (${totalCount})`
+  }`
 
   return (
     <Layout location={data.location}>
