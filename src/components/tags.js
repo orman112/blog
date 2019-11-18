@@ -1,18 +1,18 @@
 import React from "react"
-import styles from "./tags.module.scss"
+import { Link } from "gatsby"
+//Styles
+import "./tags.scss"
 
-const Tags = ({ tags }) => {
-  return (
-    <p className={styles.tags}>
-      {tags.map(tag => {
-        return (
-          <span key={tag} className={styles.tag}>
-            #{tag}
-          </span>
-        )
-      })}
-    </p>
-  )
-}
+const Tags = ({ tags }) => (
+  <p className="tags">
+    {tags.map(tag => {
+      return (
+        <Link to={`/tags/${tag}`} key={tag} className="tag">
+          #{tag}
+        </Link>
+      )
+    })}
+  </p>
+)
 
 export default Tags

@@ -1,23 +1,20 @@
 import React from "react"
-
-import styles from "./layout.module.scss"
+//Components
 import Nav from "./nav"
 import Footer from "./footer"
+//Styles
+import "./layout.scss"
 
-class Layout extends React.Component {
-  render() {
-    const { children } = this.props
-
-    return (
-      <div className={styles.container}>
-        <main>
-          <Nav />
-          <div className={styles.content}>{children}</div>
-        </main>
-        <Footer>The Frugal Dev</Footer>
-      </div>
-    )
-  }
+const Layout = ({ children }) => {
+  return (
+    <div className="container">
+      <main>
+        <Nav />
+        <div className="content">{children}</div>
+      </main>
+      <Footer>The Frugal Dev</Footer>
+    </div>
+  )
 }
 
 export default Layout

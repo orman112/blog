@@ -2,10 +2,9 @@
 title: Resolving Conflicts in Git
 published: true
 date: "2019-11-06"
-tags: ["git", "conflicts", "vim", "walkthrough"]
+tags: ["technology", "git", "vim", "walkthrough"]
 unsplash-image-id: "e1daGOrmkIk"
 description: "Resolving conflicts in git can be intimidating, and even more so if you plan on using a cli tool. In this post, I try and *resolve* (pun intended) some of those concerns."
-category: "technology"
 ---
 
 There are quite a few ways to resolve conflicts in git, whether it's through the command-line or a GUI. In this post, I'm going to offer an opinionated solution using the command-line and, more specifically, using a tool called vimdiff (because I'm most familiar with the Vim interface).

@@ -5,6 +5,9 @@
   color: $white;
   font-size: $font-size-small;
   margin: 0 5px;
-  padding: 0.3em;
-  cursor: default;
+  padding: 0.3em 0.5em;
+  cursor: pointer;
+  &:hover {
+    color: $white;
+  }
 }

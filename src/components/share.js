@@ -13,7 +13,7 @@ import {
   TwitterShareButton,
   RedditShareButton,
 } from "react-share"
-
+//Styles
 import "./share.scss"
 
 const Share = ({ socialConfig, tags }) => (

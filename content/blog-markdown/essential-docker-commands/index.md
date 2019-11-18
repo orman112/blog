@@ -2,10 +2,9 @@
 title: Essential Docker Commands
 published: true
 date: "2019-11-18"
-tags: ["docker", "containers", "overview"]
+tags: ["technology", "docker", "containers"]
 unsplash-image-id: "lwACYK8ScmA"
 description: "Working with containers has been a hot topic for a few years now. But sometimes it can feel intimidating as you're getting started. This post helps alleviate some of those concerns and hopes to serve as a reference guide to a few of the crucial commands that Docker offers."
-category: "technology"
 ---
 
 I recently began playing around with Docker in my spare time. I've heard a lot about the benefits of containerizing applications but, being an avid practitioner of [pain driven development](https://www.weeklydevtips.com/episodes/010), I haven't found the need to implement it in any of my applications thus far. Curiosity got the better of me, however, and I decided to list out a quick reference guide for common commands used within the Docker CLI. A [complete list of these commands](https://docs.docker.com/engine/reference/commandline/cli/) are readily available on Docker's documentation site, but feel free to follow along in your terminal after [downloading Docker Desktop](https://hub.docker.com/?overlay=onboarding).

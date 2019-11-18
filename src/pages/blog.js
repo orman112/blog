@@ -4,7 +4,6 @@ import { graphql } from "gatsby"
 import Articles from "../components/articles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import CategoriesNav from "../components/categories-nav"
 
 const Blog = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
@@ -13,7 +12,6 @@ const Blog = ({ data }) => {
   return (
     <Layout location={data.location} title={siteTitle}>
       <SEO title="Blog" />
-      <CategoriesNav posts={posts} />
       <Articles posts={posts} />
     </Layout>
   )
@@ -44,7 +42,6 @@ export const pageQuery = graphql`
             title
             description
             unsplash_image_id
-            category
           }
         }
       }

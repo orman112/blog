@@ -1,29 +1,32 @@
 import React from "react"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
-import string from "lodash/string"
 //Components
 import Articles from "../components/articles"
 import Layout from "../components/layout"
+//Styles
+import "./tags.scss"
 
-const Category = ({ pageContext, data }) => {
-  const { category } = pageContext
-  const { edges, totalCount } = data.allMarkdownRemark
-  const categoryHeader = `${totalCount} ${string.capitalize(category)} Post${
+const Tags = ({ pageContext, data }) => {
+  const { tag } = pageContext
+  const {
+    allMarkdownRemark: { edges, totalCount },
+  } = data
+  const header = `${totalCount} post${
     totalCount === 1 ? "" : "s"
-  }`
+  } tagged with ${tag}`
 
   return (
     <Layout location={data.location}>
-      <h1>{categoryHeader}</h1>
+      <h1 className="tags-header">{header}</h1>
       <Articles posts={edges} />
     </Layout>
   )
 }
 
-Category.propTypes = {
+Tags.propTypes = {
   pageContext: PropTypes.shape({
-    category: PropTypes.string.isRequired,
+    tag: PropTypes.string.isRequired,
   }),
   data: PropTypes.shape({
     totalCount: PropTypes.number.isRequired,
@@ -42,14 +45,12 @@ Category.propTypes = {
   }),
 }
 
-export default Category
+export default Tags
 export const pageQuery = graphql`
-  query($category: String) {
+  query($tag: String) {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: {
-        frontmatter: { category: { in: [$category] }, published: { eq: true } }
-      }
+      filter: { frontmatter: { tags: { in: [$tag] }, published: { eq: true } } }
     ) {
       totalCount
       edges {
