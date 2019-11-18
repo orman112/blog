@@ -1,3 +1,4 @@
+@import "../styles/shared/hero-image.scss";
 @import "../styles/variables";
 
 .post {
@@ -43,11 +44,8 @@
 }
 
 .post-image {
+  @extend .hero-image;
   margin-bottom: 1rem;
-  width: 100%;
-  height: 300px;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 .post-meta {

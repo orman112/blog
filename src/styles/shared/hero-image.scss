@@ -1,0 +1,13 @@
+@import "../variables.scss";
+
+.hero-image {
+  width: 100%;
+  height: 30rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 8rem;
+  @media screen and (max-width: $mobile) {
+    height: 17rem;
+  }
+}

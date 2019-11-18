@@ -1,13 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Disqus from "disqus-react"
 //Components
 import Layout from "../components/layout"
 import Tags from "../components/tags"
 import SEO from "../components/seo"
+import Share from "../components/share"
 //Styles
 import "./blog-post.scss"
-import Share from "../components/share"
-import Disqus from "disqus-react"
 
 const BlogPostTemplate = ({ data, location }) => {
   const {

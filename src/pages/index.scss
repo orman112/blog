@@ -1,0 +1,7 @@
+@import "../styles/shared/hero-image.scss";
+
+.home-image {
+  @extend .hero-image;
+  background-image: url("../images/home.jpeg");
+  margin-bottom: 8rem;
+}

@@ -12,11 +12,9 @@ class Layout extends React.Component {
       <div className={styles.container}>
         <main>
           <Nav />
-
           <div className={styles.content}>{children}</div>
-
-          <Footer>The Frugal Dev</Footer>
         </main>
+        <Footer>The Frugal Dev</Footer>
       </div>
     )
   }
