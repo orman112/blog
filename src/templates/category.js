@@ -2,7 +2,6 @@ import React from "react"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
 import string from "lodash/string"
-
 //Components
 import Articles from "../components/articles"
 import Layout from "../components/layout"

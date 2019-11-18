@@ -58,12 +58,12 @@ const BlogPostTemplate = ({ data, location }) => {
         <div className="post-meta">
           {tags && tags.length ? (
             <div className="post-meta__block">
-              <span className="title">Tags:</span>
+              <span className="post-meta__title">Tags:</span>
               <Tags tags={tags} />
             </div>
           ) : null}
           <div className="post-meta__block">
-            <span className="title">Share:</span>
+            <span className="post-meta__title">Share:</span>
             <Share
               socialConfig={{
                 twitterHandle,

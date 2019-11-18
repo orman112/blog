@@ -5,3 +5,21 @@
   background-image: url("../images/home.jpeg");
   margin-bottom: 8rem;
 }
+
+.title {
+  color: $blue-grey;
+  text-transform: uppercase;
+  font-family: $font-heading;
+  font-size: $font-size-xxlarge;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+  border-bottom: 2px solid rgba(34, 47, 62, 0.5);
+  line-height: 1;
+  margin-top: 0;
+  text-align: center;
+
+  @media (max-width: $tablet - 1px) {
+    font-size: $font-size-large;
+    padding-bottom: 2rem;
+  }
+}

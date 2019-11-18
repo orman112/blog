@@ -3,7 +3,6 @@ import { graphql, Link } from "gatsby"
 //Components
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Title from "../components/title"
 //Styles
 import "./index.scss"
 
@@ -13,7 +12,7 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Home" />
-      <Title text={siteTitle} />
+      <h1 className="title">{siteTitle}</h1>
       <p className="alert">
         Welcome to my blog! My name is <Link to="/about">Clayton</Link> and I
         enjoy learning all about new and interesting topics, specifically in the

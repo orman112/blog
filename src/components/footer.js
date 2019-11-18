@@ -16,29 +16,33 @@ const Footer = ({ children }) => {
       }
     }
   `)
+  const {
+    site: {
+      siteMetadata: { github, linkedIn, twitter },
+    },
+  } = data
 
-  const { social } = data.site.siteMetadata
   return (
     <footer>
       <div className="footer-container">
         <div className="footer">{children}</div>
         <div className="row">
           <a
-            href={`https://www.github.com/${social.github}`}
+            href={`https://www.github.com/${github}`}
             target="_blank"
             rel="noopener noreferrer"
           >
             <div className="button-github">&nbsp;</div>
           </a>
           <a
-            href={`https://www.linkedin.com/in/${social.linkedIn}`}
+            href={`https://www.linkedin.com/in/${linkedIn}`}
             target="_blank"
             rel="noopener noreferrer"
           >
             <div className="button-linkedin">&nbsp;</div>
           </a>
           <a
-            href={`https://twitter.com/${social.twitter}`}
+            href={`https://twitter.com/${twitter}`}
             target="_blank"
             rel="noopener noreferrer"
           >
