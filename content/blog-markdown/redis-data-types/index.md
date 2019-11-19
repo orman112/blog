@@ -9,7 +9,7 @@ description: "I've been interested in learning more about Redis, and when work p
 
 [Redis](https://redis.io/) is an open-source, in-memory data store. Although there are many use cases, including acting as a message broker, Redis is commonly used as a caching mechanism. I've recently been looking into utilizing this caching service at work. With that in mind, I figured I would write up a quick post about some of the more common data types supported in Redis, and when you might expect to use them.
 
-_Note: All examples below are utilizing the `redis-cli` but feel free to follow along using the [playground](https://try.redis.io/)._
+> _Note: All examples below are utilizing the `redis-cli` but feel free to follow along using the [playground](https://try.redis.io/)._
 
 ## **Keys**
 
