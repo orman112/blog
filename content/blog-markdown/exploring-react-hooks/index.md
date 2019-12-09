@@ -8,6 +8,7 @@ description: "React Hooks"
 ---
 
 Example Code: **https://github.com/pkellner/pluralsight-course-using-react-hooks**
+**Reference module 4, episode 8, :43 seconds of react-redux course for more information on hooks**
 
 # Intro
 
@@ -37,6 +38,7 @@ Example Code: **https://github.com/pkellner/pluralsight-course-using-react-hooks
 - when the functional component completes, a different function associated with useEffect is executed
 - useEffect is a great tool for adding and removing listeners for DOM elements
 - Gives the ability to easily set objects, typically state, when components start and finish
+- If no arguments are passed (an empty array), useEffect has the same effect as componentDidMount();
 
 # Less common hooks
 

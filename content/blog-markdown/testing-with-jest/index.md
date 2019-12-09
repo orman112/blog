@@ -27,5 +27,11 @@ description: ""
 
 - Calling React Test Utils behind the scene (serves as an abstraction so you don't have to worry about low level details)
 - Uses JSDOM (in-memory DOM) to simulate the browser
+- Has methods like shallow (where you can reference JSX) or mount (for actual DOM testing)
 
 **React Testing Library** smaller API and encourages writing tests that reflect how your application is going to be used by the end user (official recommendation by React -- link above)
+
+- Unlike Enzyme, there is no shallow rendering, components are always mounted
+- Philosophy that you should focus on what the end user sees
+- Queries (getByText, getByTitle, etc) in RTL also come with an implied assertion so no explicit assertion (expect methods) are necessary
+- Can also destructure debug method in RTL to get a nice color-coded view of what is rendered within a component (output of RTL's render method)
