@@ -712,9 +712,7 @@ If you're logged into the application, our nav menu should now only be displayin
 
 ## Private Routes
 
-Our users are now succesfully able to log into and out of the application at will. We still have one more thing to do, however. If you remember, at the beginning of this tutorial, we created a private component that we only wanted logged-in users to see. That's not working as expected, currently, so let's see if we can fix that.
-
---------- LEFT OFF HERE ----------
+Our users are now successfully able to log into and out of the application at will. We still have one more thing to do, however. If you remember, at the beginning of this tutorial, we created a private component that we only wanted logged-in users to see. That's currently not working as expected, so let's see if we can fix that.
 
 Let's create a new component under the `components` directory and call it `private-route.js`. This will serve as an additional Route we can use for pages that we don't want un-authenticated users to see.
 
@@ -749,16 +747,61 @@ export default PrivateRoute
 
 Essentially, the method that they recommend first returns an **_Initializing_** status before ultimately returning the **_currentUser_** object. If we were to go this route, our navigation and private-route components would first assume the user is not logged in during the initializing phase, and then re-render after the currentUser object is returned. This would create a negative user experience for our end users.
 
-So, with that being said, we are checking whether a user is logged in using the `getAuthenticationStatus` method we created earlier which checks the localStorage behind the scenes.
+So, with that being said, we are instead checking whether a user is logged in by using the `getAuthenticationStatus` method we created earlier, which checks the localStorage behind the scenes.
 
 With this private route component in place, lets update our `App.js` file to ensure our `private.js` component is only accessible if a user is logged in:
 
 ```javascript
+import React, { useLayoutEffect } from "react"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import "bulma/css/bulma.css"
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+// Redux
+import { connect } from "react-redux"
+import { fetchUser } from "./redux/firebase-actions"
+// Components
+import Home from "./components/home"
+import Header from "./components/header"
+import Public from "./components/public"
+import Private from "./components/private"
+import Login from "./components/login"
+import Register from "./components/register"
+import PrivateRoute from "./components/private-route"
+
+function App({ fetchUser }) {
+  useLayoutEffect(() => {
+    fetchUser()
+  }, [])
+
+  return (
+    <Router>
+      <section className="section">
+        <div className="container">
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/public" component={Public} />
+            <PrivateRoute path="/private" component={Private} />
+            <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
+          </Switch>
+
+          <ToastContainer autoClose={3000} hideProgressBar />
+        </div>
+      </section>
+    </Router>
+  )
+}
+
+export default connect(
+  null,
+  { fetchUser }
+)(App)
 ```
 
-- Create protected component to hide sensitive pages
-- Create header component and include 'logout' link
-  - Talk about localStorage necessity
-- Private Route to reroute non-authenticated users
+If you log out of the application and try accessing our Private link in our navigation menu, you'll notice that you are redirected back to the home page. If you log in, however, you'll see that you can access our private component just as we could before!
 
-* App.js
+## Conclusion
+
+That should do it! You're app should be up and running now with the ability to register, log in, and log out users utilizing Redux and Firebase authentication. I hope you learned a bit as you followed along, and make sure to come back and check out other articles similar to this one on my blog :smile:
