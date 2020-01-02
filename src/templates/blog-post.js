@@ -43,7 +43,7 @@ const BlogPostTemplate = ({ data, location }) => {
         description={description || excerpt}
         imageSrc={heroImage}
       />
-      <article>
+      <article className="content">
         <header>
           <h1 className="post-title">{title}</h1>
         </header>

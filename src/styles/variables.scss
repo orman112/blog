@@ -1,6 +1,5 @@
 // Typography
 $font-heading: "Montserrat", sans-serif;
-$font-sans-serif: "Nunito Sans", Arial, Helvetica, sans-serif;
 $font-size: 1.7rem;
 $font-size-xsmall: 1.2rem;
 $font-size-small: 1.5rem;
@@ -46,3 +45,23 @@ $brand-colors: (
   reddit: #ff4500,
   whatsapp: #128c7e,
 );
+
+/********
+*********
+Bulma Overrides
+*********
+********/
+
+//Layout
+$title-color: $blue-grey;
+$family-sans-serif: "Nunito Sans", Arial, Helvetica, sans-serif;
+$link: $blue;
+$link-hover: $navy;
+$text: $navy;
+$body-line-height: 1.7;
+//Navbar
+$navbar-item-color: $blue;
+$navbar-item-hover-color: $navy;
+//Footer
+$footer-background-color: $navy;
+$footer-padding: 1rem 1.5rem;

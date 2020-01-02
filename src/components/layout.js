@@ -7,13 +7,13 @@ import "./layout.scss"
 
 const Layout = ({ children }) => {
   return (
-    <div className="container">
+    <>
+      <Nav />
       <main>
-        <Nav />
-        <div className="content">{children}</div>
+        <div className="container">{children}</div>
       </main>
       <Footer>The Frugal Dev</Footer>
-    </div>
+    </>
   )
 }
 

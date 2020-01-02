@@ -1,62 +1,17 @@
 @import "../styles/variables";
-@import "../styles/shared/buttons.scss";
 
-.header-container {
-  max-width: $site-width;
-  min-height: 8rem;
-  margin: 0 auto;
-  padding-top: 30px;
-
-  .row {
-    display: flex;
-    justify-content: flex-end;
-    padding: 5px;
-
-    @media screen and (max-width: $tablet - 1px) {
-      justify-content: center;
-    }
-  }
-
-  .button-icon {
-    @extend .button;
-    background-size: 16px 16px;
-    background-repeat: no-repeat;
-    background-position: center center;
-  }
-
-  .button-github {
-    @extend .button-icon;
-    background-image: url("../images/github.png");
-  }
-
-  .button-twitter {
-    @extend .button-icon;
-    background-image: url("../images/twitter.png");
-    margin-right: 0px;
-  }
-
-  .button-linkedin {
-    @extend .button-icon;
-    background-image: url("../images/linkedin.png");
-  }
-
-  .link {
+.navbar {
+  .navbar-item {
     opacity: 0.65;
     font-family: $font-heading;
-    font-size: $font-size-small;
     font-weight: bold;
-    text-decoration: none;
 
     &:hover {
       opacity: 1;
     }
 
     &:not(:last-child) {
-      padding-right: 30px;
+      padding-right: 1.6em;
     }
-  }
-
-  @media screen and (max-width: $tablet - 1px) {
-    min-height: 5rem;
   }
 }

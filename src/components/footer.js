@@ -23,10 +23,10 @@ const Footer = ({ children }) => {
   } = data
 
   return (
-    <footer>
-      <div className="footer-container">
-        <div className="footer">{children}</div>
-        <div className="row">
+    <footer className="footer has-text-white">
+      <div className="container level">
+        <div className="level-left">{children}</div>
+        <div>
           <a
             href={`https://www.github.com/${github}`}
             target="_blank"

@@ -1,3 +1,9 @@
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+//Update variables before importing Bulma
+@import "../styles/variables.scss";
+@import "~bulma/bulma.sass";
 @import "../styles/shared/hero-image.scss";
 
 .home-image {
@@ -6,20 +12,18 @@
   margin-bottom: 8rem;
 }
 
-.title {
-  color: $blue-grey;
-  text-transform: uppercase;
-  font-family: $font-heading;
-  font-size: $font-size-xxlarge;
-  padding-bottom: 3rem;
-  margin-bottom: 0;
-  border-bottom: 2px solid rgba(34, 47, 62, 0.5);
-  line-height: 1;
-  margin-top: 0;
-  text-align: center;
+// .title {
+//   font-family: $font-heading;
+//   font-size: $font-size-xxlarge;
+//   padding-bottom: 3rem;
+//   margin-bottom: 0;
+//   border-bottom: 2px solid rgba(34, 47, 62, 0.5);
+//   line-height: 1;
+//   margin-top: 0;
+//   text-align: center;
 
-  @media (max-width: $tablet - 1px) {
-    font-size: $font-size-large;
-    padding-bottom: 2rem;
-  }
-}
+//   @media (max-width: $tablet - 1px) {
+//     font-size: $font-size-large;
+//     padding-bottom: 2rem;
+//   }
+// }
