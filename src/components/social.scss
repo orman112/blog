@@ -1,9 +1,9 @@
-@import "../styles/shared/buttons.scss";
 @import "../styles/variables.scss";
 
 .post-social {
   .button {
     margin: 0.5rem;
+    font-size: 0.9em;
     @each $class, $color in $brand-colors {
       &.#{$class} {
         color: $color;

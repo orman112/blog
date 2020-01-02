@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
     <>
       <Nav />
       <main>
-        <div className="container">{children}</div>
+        <div className="container is-fluid">{children}</div>
       </main>
       <Footer>The Frugal Dev</Footer>
     </>

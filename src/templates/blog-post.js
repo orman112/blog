@@ -5,7 +5,7 @@ import Disqus from "disqus-react"
 import Layout from "../components/layout"
 import Tags from "../components/tags"
 import SEO from "../components/seo"
-import Share from "../components/share"
+import Social from "../components/social"
 //Styles
 import "./blog-post.scss"
 
@@ -64,7 +64,7 @@ const BlogPostTemplate = ({ data, location }) => {
           ) : null}
           <div className="post-meta__block">
             <span className="post-meta__title">Share:</span>
-            <Share
+            <Social
               socialConfig={{
                 twitterHandle,
                 config: {

@@ -7,7 +7,7 @@ const Tags = ({ tags }) => (
   <p className="tags">
     {tags.map(tag => {
       return (
-        <Link to={`/tags/${tag}`} key={tag} className="tag">
+        <Link to={`/tags/${tag}`} key={tag} className="tag is-primary">
           #{tag}
         </Link>
       )

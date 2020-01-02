@@ -14,9 +14,9 @@ import {
   RedditShareButton,
 } from "react-share"
 //Styles
-import "./share.scss"
+import "./social.scss"
 
-const Share = ({ socialConfig, tags }) => (
+const Social = ({ socialConfig, tags }) => (
   <div className="post-social">
     <FacebookShareButton
       url={socialConfig.config.url}
@@ -62,7 +62,7 @@ const Share = ({ socialConfig, tags }) => (
   </div>
 )
 
-Share.propTypes = {
+Social.propTypes = {
   socialConfig: PropTypes.shape({
     twitterHandle: PropTypes.string.isRequired,
     config: PropTypes.shape({
@@ -72,8 +72,8 @@ Share.propTypes = {
   }).isRequired,
   tags: PropTypes.arrayOf(PropTypes.string),
 }
-Share.defaultProps = {
+Social.defaultProps = {
   tags: [],
 }
 
-export default Share
+export default Social

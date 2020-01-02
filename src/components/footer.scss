@@ -1,55 +1,27 @@
-// @import "../styles/variables.scss";
-@import "../styles/shared/buttons.scss";
+.footer {
+  .button-icon {
+    display: inline-flex;
+    color: white;
+    padding: 0.125em 0.75em;
+    margin-right: 0.625em;
+    margin-bottom: 0.625em;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
 
-// footer {
-//   background-color: $navy;
-//   position: absolute;
-//   height: 10rem;
-//   bottom: 0;
-//   width: $container-width;
-//   display: flex;
-//   justify-content: center;
+  .button-github {
+    @extend .button-icon;
+    background-image: url("../images/github.png");
+  }
 
-//   .footer {
-//     color: $white;
-//     font-family: $font-heading;
-//     padding: 0px 20px 0px 20px;
-//     display: flex;
-//     align-self: center;
-//   }
+  .button-twitter {
+    @extend .button-icon;
+    background-image: url("../images/twitter.png");
+    margin-right: 0px;
+  }
 
-//   .row {
-//     display: flex;
-//     justify-content: flex-end;
-//     padding: 5px;
-//     align-items: center;
-//   }
-// }
-
-.button-icon {
-  @extend .button;
-  background-repeat: no-repeat;
-  background-position: center center;
+  .button-linkedin {
+    @extend .button-icon;
+    background-image: url("../images/linkedin.png");
+  }
 }
-
-.button-github {
-  @extend .button-icon;
-  background-image: url("../images/github.png");
-}
-
-.button-twitter {
-  @extend .button-icon;
-  background-image: url("../images/twitter.png");
-  margin-right: 0px;
-}
-
-.button-linkedin {
-  @extend .button-icon;
-  background-image: url("../images/linkedin.png");
-}
-
-// .footer-container {
-//   width: $site-width;
-//   display: flex;
-//   justify-content: space-between;
-// }

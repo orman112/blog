@@ -16,7 +16,7 @@ const Articles = ({ posts }) => {
           />
           <div className="article-copy">
             <small className="article-date">{node.frontmatter.date}</small>
-            <h3 className="article-headline">
+            <h3 className="article-headline title">
               <Link to={`${node.fields.path}`}>{title}</Link>
             </h3>
             <p
