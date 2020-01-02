@@ -34,6 +34,12 @@ module.exports = {
         plugins: [
           `gatsby-remark-emoji`,
           {
+            resolve: `gatsby-remark-embed-gist`,
+            options: {
+              username: `thefrugaldev`,
+            },
+          },
+          {
             resolve: `gatsby-remark-prismjs`,
             options: {
               classPrefix: "language-",
@@ -48,6 +54,7 @@ module.exports = {
               linkImagesToOriginal: false,
             },
           },
+          `gatsby-remark-copy-linked-files`,
         ],
       },
     },
