@@ -10,7 +10,11 @@ import "./about.scss"
 const About = ({ data }) => {
   const {
     site: {
-      siteMetadata: { author, social, title },
+      siteMetadata: {
+        author,
+        title,
+        social: { githubUserName, linkedInSuffix, twitterHandle },
+      },
     },
   } = data
 
@@ -31,7 +35,7 @@ const About = ({ data }) => {
           free to reach out to me on{" "}
           <a
             className="social-link"
-            href={`https://twitter.com/${social.twitter}`}
+            href={`https://twitter.com/${twitterHandle}`}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -40,7 +44,7 @@ const About = ({ data }) => {
           ,{" "}
           <a
             className="social-link"
-            href={`https://github.com/${social.github}`}
+            href={`https://github.com/${githubUserName}`}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -49,7 +53,7 @@ const About = ({ data }) => {
           , or{" "}
           <a
             className="social-link"
-            href={`https://www.linkedin.com/in/${social.linkedIn}/`}
+            href={`https://www.linkedin.com/in/${linkedInSuffix}/`}
             target="_blank"
             rel="noopener noreferrer"
           >
