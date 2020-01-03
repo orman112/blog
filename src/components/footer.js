@@ -18,9 +18,13 @@ const Footer = ({ children }) => {
   `)
   const {
     site: {
-      siteMetadata: { github, linkedIn, twitter },
+      siteMetadata: {
+        social: { githubUserName, linkedInSuffix, twitterHandle },
+      },
     },
   } = data
+
+  console.log(githubUserName)
 
   return (
     <footer className="footer has-text-white">
@@ -28,21 +32,21 @@ const Footer = ({ children }) => {
         <div className="level-left">{children}</div>
         <div>
           <a
-            href={`https://www.github.com/${github}`}
+            href={`https://www.github.com/${githubUserName}`}
             target="_blank"
             rel="noopener noreferrer"
           >
             <div className="button-github">&nbsp;</div>
           </a>
           <a
-            href={`https://www.linkedin.com/in/${linkedIn}`}
+            href={`https://www.linkedin.com/in/${linkedInSuffix}`}
             target="_blank"
             rel="noopener noreferrer"
           >
             <div className="button-linkedin">&nbsp;</div>
           </a>
           <a
-            href={`https://twitter.com/${twitter}`}
+            href={`https://twitter.com/${twitterHandle}`}
             target="_blank"
             rel="noopener noreferrer"
           >
