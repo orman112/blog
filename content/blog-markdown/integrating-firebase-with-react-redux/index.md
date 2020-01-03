@@ -7,7 +7,7 @@ unsplash-image-id: "f9bkzNQyylg"
 description: "User authentication is a key pillar in most modern applications today. Setting it up, however, can sometimes be a bit tricky. In this post, I'll walk you through how to set up authentication with Google's Firebase using React with Redux."
 ---
 
-Google's Firebase is a "_platform that helps you quickly develop high-quality apps and grow your business_". One of it's capabilities includes user authentication. Google makes setting this auth up within your application relatively straightforward, but their can be some quirks, which we'll discuss throughout this post. I will also be using [React-Redux](https://react-redux.js.org/) for global state management, showing some of the benefits there as well. With that said, let's start building our app!
+Google's Firebase is a "_platform that helps you quickly develop high-quality apps and grow your business_". One of its capabilities includes user authentication. Google makes setting this auth up within your application relatively straightforward, but there can be some quirks, which we'll discuss throughout this post. I will also be using [React-Redux](https://react-redux.js.org/) for global state management, showing some of the benefits there as well. With that said, let's start building our app!
 
 > As a side note, you can always view the application we'll be creating in it's entirety here on [my Github](https://github.com/thefrugaldev/firebase-react-redux).
 
@@ -170,7 +170,7 @@ With Firebase ready to go, let's get Redux setup within our application.
 
 [Redux](https://redux.js.org/) is a library that assists with controlling and maintaining global state within an application. The `react-redux` dependency we installed earlier lets us use certain bindings for Redux within our React application. For the scope of this article, I'm going to assume you are somewhat familiar with Redux, as we'll be using it to maintain state in the context of users.
 
-Lets create another directory under the `src` folder, and call it `redux`. We're going to drop four files in here.
+Let's create another directory under the `src` folder, and call it `redux`. We're going to drop four files in here.
 
 The first is going to set up our global store within redux, we'll call this `configure-store.js`.
 
@@ -197,7 +197,7 @@ const combinedReducers = combineReducers({
 export default combinedReducers
 ```
 
-Now lets set up some actions. According to the [redux docs](https://redux.js.org/basics/actions), **_actions_** are _"payloads of information that send data from your application to your store."_ Let's start by creating a few actions (`firebase-actions.js`) to register and login to our application.
+Now let's set up some actions. According to the [redux docs](https://redux.js.org/basics/actions), **_actions_** are _"payloads of information that send data from your application to your store."_ Let's start by creating a few actions (`firebase-actions.js`) to register and login to our application.
 
 ```javascript
 import { auth } from "../auth/auth-service"
@@ -235,7 +235,7 @@ export const login = (email, password) => async dispatch => {
 }
 ```
 
-As you can see, were importing the `auth` object we created earlier that gives us access to the Firebase SDK. We also have two methods, `register` and `login` that utilize this SDK. Assuming everything goes smoothly, we dispatch an action `loginSuccess` and `registerSuccess` and grab the current user from the same SDK. These actions will then be picked up by our reducer, which we'll create now (`firebase-reducer.js`):
+As you can see, we're importing the `auth` object we created earlier that gives us access to the Firebase SDK. We also have two methods, `register` and `login` that utilize this SDK. Assuming everything goes smoothly, we dispatch an action `loginSuccess` and `registerSuccess` and grab the current user from the same SDK. These actions will then be picked up by our reducer, which we'll create now (`firebase-reducer.js`):
 
 ```javascript
 export default function firebaseReducer(state = null, action) {
@@ -633,7 +633,7 @@ export default connect(
 )(App)
 ```
 
-Finally, lets update our `header.js` file to ensure that a user does not see the Login or Register links once they are logged in, and instead see a link to Log Out.
+Finally, let's update our `header.js` file to ensure that a user does not see the Login or Register links once they are logged in, and instead see a link to Log Out.
 
 ```javascript
 import React, { useLayoutEffect, useState } from "react"
@@ -739,7 +739,7 @@ export default PrivateRoute
 
 Essentially, the method that they recommend first returns an **_initializing_** status before ultimately returning the **_currentUser_** object. If we went this direction, our navigation and private-route components would first assume the user is not logged in during the **_initializing_** phase, showing the incorrect nav menu, and then re-render after the `currentUser` object is returned. This would create a negative user experience for our end users.
 
-With that being said, we'll instead check whether a user is logged in by using the `getAuthenticationStatus` method we created earlier, which checks the localStorage behind the scenes.
+With that being said, let's instead check whether a user is logged in by using the `getAuthenticationStatus` method we created earlier, which checks the localStorage behind the scenes.
 
 With this private route component in place, lets update our `App.js` file to ensure our `private.js` component is only accessible if a user is logged in:
 
@@ -796,4 +796,4 @@ If you log out of the application and try accessing our private component from t
 
 ## Conclusion
 
-That should do it! You're app should now be up and running with the ability to register, log in, and log out users utilizing Redux with Firebase authentication. I hope you learned a bit as you followed along, and make sure to come back and check out other articles similar to this one on [my blog](https://thefrugal.dev/blog) :smile:
+That should do it! Your app should now be up and running with the ability to register, log in, and log out users utilizing Redux with Firebase authentication. I hope you learned a bit as you followed along, and make sure to come back and check out other articles similar to this on [my blog](https://thefrugal.dev/blog) :smile:
