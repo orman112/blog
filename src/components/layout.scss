@@ -1,19 +1,5 @@
-// @import "../styles/variables";
-
-// .container {
-//   position: relative;
-//   min-height: 100vh;
-
-//   .content {
-//     margin: 0 auto;
-//     max-width: $site-width;
-//     padding-bottom: 100px;
-//   }
-
-//   main {
-//     @media screen and (min-width: 1px) and (max-width: 1000px) {
-//       padding-left: 20px;
-//       padding-right: 20px;
-//     }
-//   }
-// }
+.layout-container {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 5rem;
+}

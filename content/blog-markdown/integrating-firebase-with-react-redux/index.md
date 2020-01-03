@@ -9,7 +9,7 @@ description: "User authentication is a key pillar in most modern applications to
 
 Google's Firebase is a "_platform that helps you quickly develop high-quality apps and grow your business_". One of it's capabilities includes user authentication. Google makes setting this auth up within your application relatively straightforward, but their can be some quirks, which we'll discuss throughout this post. I will also be using [React-Redux](https://react-redux.js.org/) for global state management, showing some of the benefits there as well. With that said, let's start building our app!
 
-> As a side note, you can always view the application we'll be creating in it's entirety here on my Github: https://github.com/thefrugaldev/firebase-react-redux
+> As a side note, you can always view the application we'll be creating in it's entirety here on [my Github](https://github.com/thefrugaldev/firebase-react-redux).
 
 ## Register your application
 
