@@ -1,5 +1,5 @@
 ---
-title: Self-Hosting a Ghost Blog with Gatsby
+title: Self-Hosting a Ghost Blog with GatsbyJS
 published: true
 date: "2019-08-09"
 tags: ["technology", "hosting", "gatsby", "ghost", "walkthrough"]
