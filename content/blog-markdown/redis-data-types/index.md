@@ -150,9 +150,9 @@ OK
 
 Sorted sets are similar in nature to [sets](#Sets), where they are non-repeating collections of strings. There is a subtle difference in that every member of a sorted set is associated with a score. **Scores** are a range of integers that can be expressed precisely. Sorted sets use a double 64-bit floating point number to represent the score, and this is what will ultimately be used to sort the given set.
 
-While members of a sorted sets are unique, similar to [sets](#Sets), scores may be repeated. Sorted sets begin sorting the set as items are added, which is an _O_(log(_n_)) operation. This improves performance when retreiving an element from the sorted set, making it an _O_(1), or constant time, operation because it's already sorted.
+While members of a sorted sets are unique, similar to [sets](#Sets), scores may be repeated. Sorted sets begin sorting the set as items are added, which is an _O_(log(_n_)) operation. This improves performance when retrieving an element from the sorted set, making it an _O_(1), or constant time, operation because it's already sorted.
 
-Assuming an element is added to a sorted set with a unique score, the element will be sorted on that score appropriately. However, if the score provided is similar to another score already in the set, the elements will be sorted lexographically (alphabetically). One other thing to note, sorted sets are variadic, meaning they have an indefinite arity, or the number of arguments a function accepts.
+Assuming an element is added to a sorted set with a unique score, the element will be sorted on that score appropriately. However, if the score provided is similar to another score already in the set, the elements will be sorted lexicographically (alphabetically). One other thing to note, sorted sets are variadic, meaning they have an indefinite arity, or the number of arguments a function accepts.
 
 ### **When to use sorted sets**
 
