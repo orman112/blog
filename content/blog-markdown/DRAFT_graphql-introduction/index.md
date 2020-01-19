@@ -112,7 +112,7 @@ query TwoUsers($userName1: String!, $userName2: String!) {
 - Fragments usually map one-to-one to different components within a UI
 
   - Every component within the UI will have an associated fragment in the GraphQL document
-  - The allows the different components to own **_only_** the parts of the overall data schema that they care about (Single Responsibility Principle??)
+  - This allows the different components to own **_only_** the parts of the overall data schema that they care about (Single Responsibility Principle??)
 
 ```javascript
 query TwoUsers($userName1: String!, $userName2: String!) {
@@ -138,3 +138,11 @@ fragment UserInfo on GithubUser{
   "userName2": "caritobd91"
 }
 ```
+
+## Mutations
+
+- Mutations are used to update data in GraphQL
+- Mutations are functions that get resolved on the server
+- Every mutation has an input and output
+  - Input is what the server uses to execute the mutation
+  - Output is the new state that can be fetched after the update was executed
