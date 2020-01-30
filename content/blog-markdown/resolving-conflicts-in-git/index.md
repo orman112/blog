@@ -4,14 +4,14 @@ published: true
 date: "2019-11-06"
 tags: ["technology", "git", "vim", "walkthrough"]
 unsplash-image-id: "e1daGOrmkIk"
-description: "Resolving conflicts in git can be intimidating, and even more so if you plan on using a cli tool. In this post, I try and *resolve* (pun intended) some of those concerns."
+description: "Resolving conflicts in git can be intimidating, and even more so if you plan on using a cli tool. In this post, I try and resolve (pun intended) some of those concerns."
 ---
 
 There are quite a few ways to resolve conflicts in git, whether it's through the command-line or a GUI. In this post, I'm going to offer an opinionated solution using the command-line and, more specifically, using a tool called vimdiff (because I'm most familiar with the Vim interface).
 
 ## Set up Git config with your tool of choice
 
-The first thing you'll want to do is configure git to use the [mergetool](https://git-scm.com/docs/git-mergetool) you're most comfortable with. There are a number of options to choose from, including emerge, gvimdiff, kdiff3, meld, vimdiff, and tortoisemerge. For a complete list of tools and settings, simply run `git mergetool --tool-help` in your terminal. In this post, I'm going to use vimdiff. Now, I could do this by runnning `git -t vimdiff`, which would configure it as my tool for this session only. However, I want git to always default to this tool for any future conflicts.
+The first thing you'll want to do is configure git to use the [mergetool](https://git-scm.com/docs/git-mergetool) you're most comfortable with. There are a number of options to choose from, including emerge, gvimdiff, kdiff3, meld, vimdiff, and tortoisemerge. For a complete list of tools and settings, simply run `git mergetool --tool-help` in your terminal. In this post, I'm going to use vimdiff. Now, I could do this by running `git -t vimdiff`, which would configure it as my tool for this session only. However, I want git to always default to this tool for any future conflicts.
 
 So, the first few commands that we'll run are:
 
@@ -44,7 +44,7 @@ If this seems tedious and you would rather take a complete copy of either the **
 
 After you're satisfied with the changes you made, and the merged copy reflects what you were after, it's time to save and commit the changes.
 
-Enter **_command mode_** by pressing `esc`, and type `:wqa`. This command will write, save, and quite all filles within Vim. You are now ready to commit your changes using the well-known `git commit -m "My Commit Message"` command. Vimdiff will create a few files for you during the resolution, most ending in a `*.orig` suffix, but to get rid of these files simply run `git clean`.
+Enter **_command mode_** by pressing `esc`, and type `:wqa`. This command will write, save, and quite all files within Vim. You are now ready to commit your changes using the well-known `git commit -m "My Commit Message"` command. Vimdiff will create a few files for you during the resolution, most ending in a `*.orig` suffix, but to get rid of these files simply run `git clean`.
 
 ## All finished
 
