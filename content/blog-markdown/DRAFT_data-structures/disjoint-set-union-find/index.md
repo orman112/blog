@@ -1,8 +1,8 @@
 ---
-title: Disjoint-Set/Union-Find
+title: Disjoint-Set/Union-Find Data Structure
 published: false
 date: ""
-tags: ["data structures"]
+tags: ["data structures", "algorithms"]
 ---
 
 # Disjoint-Set/Union-Find Data Structure
@@ -24,11 +24,25 @@ A _disjoint-set_ (also referred to as a _union-find_ data structure) is a data s
 
 **Quick Find**
 
-- Algorithm used to solve the dynamic [connectivity problem](#DynamicConnectivity).
+- _Eager_ algorithm used to solve the [dynamic connectivity](#DynamicConnectivity) problem.
 - _Find_ is a very efficient command in this algorithm as it is in constant time.
-  - Given id[] of size _N_ check if p and q are connected:
+  - Given id[] of size _N_, check if _p_ and _q_ are connected:
   - `id[p] === id[q]`
 - _Union_ is measured in quadratic time as the time to solve is dependent on the size of the array and the number of values that must change as a result.
   - When changing a value of `id[q]`, you much change all entries who value is equal (connected) to `id[q]` as well.
 
 ![Quick-Find Illustration](./quick-find-illustration.png "quick find illustration")
+
+**Quick Union**
+
+- _Lazy_ algorithm used to solve the [dynamic connectivity](#DynamicConnectivity) problem.
+- Data structures implementing this algorithm are represented as trees in order to find the connected root of each element.
+- _Find_ requires a traversal up the tree:
+  - Given id[] of size _N_, check if _p_ and _q_ have the same root
+  -
+  - `return root(p) === root(q)`
+- _Union_ requires the _find_ method in order to determine each element's root and is measured in linear time:
+  - To merge _connected components_ containing _p_ and _q_, set
+    the id of _p_'s root to the id of _q_'s root.
+
+![Quick-Union Illustration](./quick-union-illustration.png "quick union illustration")
