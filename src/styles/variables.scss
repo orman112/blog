@@ -1,24 +1,13 @@
 // Typography
 $font-heading: "Montserrat", sans-serif;
-$font-size: 1.7rem;
-$font-size-xsmall: 1.2rem;
-$font-size-small: 1.5rem;
-$font-size-medium: 2.3rem;
-$font-size-large: 3rem;
-$font-size-xlarge: 6.5rem;
-$font-size-xxlarge: 8rem;
-$font-weight: 300;
-$font-weight-bold: 700;
-$line-height: 1.5;
+$font-sans-serif: "Nunito Sans", sans-serif;
 
 // Colors
-$navy: #222f3e;
-$blue: #5379b5;
-$light-blue: #86b3bd;
-$white: #ffffff;
-$dark-grey: #777777;
-$light-grey: #e2e3e5;
-$blue-grey: #576574;
+$midnight: #001628;
+$sapphire: #22577a;
+$aquamarine: #6decaf;
+$turquoise: #59dec9;
+$steel-blue: #5379b5;
 
 // Scale
 $container-width: 100%;
@@ -34,7 +23,7 @@ $cinema: 1344px + (2 * $gap);
 $ultrawide: 1600px + (2 * $gap);
 $shortscreen: 800px;
 
-//Other
+// Other
 $bottom-border: 4px solid rgba(0, 0, 0, 0.05);
 
 $brand-colors: (
@@ -52,19 +41,27 @@ Bulma Overrides
 *********
 ********/
 
-//Derived
-$primary: $navy;
+// Initial
+$family-sans-serif: $font-sans-serif;
 
-//Layout
-$title-color: $blue-grey;
-$family-sans-serif: "Nunito Sans", Arial, Helvetica, sans-serif;
-$link: $blue;
-$link-hover: $navy;
-$text: $navy;
+// Derived
+$primary: white;
+$scheme-main: $midnight;
+$scheme-main-bis: $midnight;
+$background: $sapphire;
+$text: $primary;
+$text-strong: $turquoise;
+
+// Layout
+$link: $aquamarine;
+$link-hover: $turquoise;
 $body-line-height: 1.7;
-//Navbar
-$navbar-item-color: $blue;
-$navbar-item-hover-color: $navy;
-//Footer
-$footer-background-color: $navy;
+
+// Navbar
+$navbar-item-color: $steel-blue;
+
+// Title
+$title-family: $font-heading;
+
+// Footer
 $footer-padding: 1rem 1.5rem;

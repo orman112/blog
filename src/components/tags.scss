@@ -1,13 +1,13 @@
 @import "../styles/variables";
 
 .tag {
-  background-color: $navy;
-  color: $white;
-  font-size: $font-size-small;
+  // background-color: $navy;
+  color: white;
+  // font-size: $font-size-small;
   margin: 0 5px;
   padding: 0.3em 0.5em;
   cursor: pointer;
   &:hover {
-    color: $white;
+    color: white;
   }
 }
