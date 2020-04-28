@@ -39,7 +39,6 @@ A _disjoint-set_ (also referred to as a _union-find_ data structure) is a data s
 - Data structures implementing this algorithm are represented as trees in order to find the connected root of each element.
 - _Find_ requires a traversal up the tree:
   - Given id[] of size _N_, check if _p_ and _q_ have the same root
-  -
   - `return root(p) === root(q)`
 - _Union_ requires the _find_ method in order to determine each element's root and is measured in linear time:
   - To merge _connected components_ containing _p_ and _q_, set
