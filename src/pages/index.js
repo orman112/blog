@@ -5,9 +5,16 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 //Styles
-import "./index.scss"
+import styled from "styled-components"
 
-const BlogIndex = ({ data, location }) => {
+const SiteTitle = styled.h1.attrs({
+  className: "title is-uppercase has-text-centered ",
+})`
+  padding-bottom: 2rem;
+  border-bottom: 2px solid rgba(34, 47, 62, 0.5);
+`
+
+export default ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (
@@ -16,9 +23,7 @@ const BlogIndex = ({ data, location }) => {
       <section className="hero">
         <div className="hero-body">
           <div className="container">
-            <h1 className="title is-uppercase has-text-centered site-title">
-              {siteTitle}
-            </h1>
+            <SiteTitle>{siteTitle}</SiteTitle>
             <p>
               Welcome to my blog! My name is <Link to="/about">Clayton</Link>{" "}
               and I enjoy learning all about new and interesting topics,
@@ -33,18 +38,10 @@ const BlogIndex = ({ data, location }) => {
             </p>
           </div>
         </div>
-        <div className="home-image">
-          <Img
-            fluid={data.file.childImageSharp.fluid}
-            style={{ maxHeight: "100%" }}
-          />
-        </div>
       </section>
     </Layout>
   )
 }
-
-export default BlogIndex
 
 export const pageQuery = graphql`
   query {
