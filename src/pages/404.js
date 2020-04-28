@@ -3,8 +3,6 @@ import { graphql, Link } from "gatsby"
 //Components
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-//Styles
-import "./404.scss"
 
 const NotFoundPage = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -12,13 +10,11 @@ const NotFoundPage = ({ data }) => {
   return (
     <Layout location title={siteTitle}>
       <SEO title="404: Not Found" />
-      <div className="content">
-        <h1 className="header">Not Found</h1>
-        <p className="errorMessage">
-          You just hit a route that doesn&#39;t exist...the sadness.
-        </p>
-        <Link to="/">Home</Link>
-      </div>
+      <h1 className="title has-text-danger">Not Found</h1>
+      <p className="error-message">
+        You just hit a route that doesn&#39;t exist...the sadness.
+      </p>
+      <Link to="/">Home</Link>
     </Layout>
   )
 }

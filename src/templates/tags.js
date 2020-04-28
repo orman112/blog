@@ -4,8 +4,6 @@ import PropTypes from "prop-types"
 //Components
 import Articles from "../components/articles"
 import Layout from "../components/layout"
-//Styles
-import "./tags.scss"
 
 const Tags = ({ pageContext, data }) => {
   const { tag } = pageContext

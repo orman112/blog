@@ -5,9 +5,22 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 //Styles
-import "./about.scss"
+import styled from "styled-components"
 
-const About = ({ data }) => {
+const About = styled.div`
+  align-items: center;
+  flex-direction: column;
+  margin: 5rem auto 0;
+  max-width: 50rem;
+
+  .about-picture {
+    margin-bottom: 1.2rem;
+    border-radius: 50%;
+    box-shadow: 5px 5px 7px 0px rgba(0, 0, 0, 0.4);
+  }
+`
+
+export default ({ data }) => {
   const {
     site: {
       siteMetadata: {
@@ -21,7 +34,7 @@ const About = ({ data }) => {
   return (
     <Layout title={title}>
       <SEO title="About Me" />
-      <div className="about-profile has-text-centered is-flex">
+      <About className="has-text-centered is-flex">
         <Img
           fixed={data.file.childImageSharp.fixed}
           className="about-picture"
@@ -61,12 +74,10 @@ const About = ({ data }) => {
           </a>
           .
         </p>
-      </div>
+      </About>
     </Layout>
   )
 }
-
-export default About
 
 export const pageQuery = graphql`
   query AboutQuery {

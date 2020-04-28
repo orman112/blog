@@ -1,24 +1,28 @@
 import React from "react"
+import styled, { ThemeProvider } from "styled-components"
+import theme from "../styles/theme"
 //Components
 import Nav from "./nav"
 import Footer from "./footer"
 //Styles
-import "./layout.scss"
-import * as theme from "../styles/theme.scss"
-import { ThemeProvider } from "styled-components"
+import "../styles/bulma-override.scss"
 
-const Layout = ({ children }) => {
+const Layout = styled.div`
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 5rem;
+`
+
+export default ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
-      <div className="layout-container">
+      <Layout>
         <Nav />
         <main>
           <div className="container is-fluid">{children}</div>
         </main>
         <Footer>The Frugal Dev</Footer>
-      </div>
+      </Layout>
     </ThemeProvider>
   )
 }
-
-export default Layout

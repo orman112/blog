@@ -1,15 +1,43 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Disqus from "disqus-react"
+import styled from "styled-components"
 //Components
 import Layout from "../components/layout"
 import Tags from "../components/tags"
 import SEO from "../components/seo"
 import Social from "../components/social"
-//Styles
-import "./blog-post.scss"
 
-const BlogPostTemplate = ({ data, location }) => {
+const BlogPostTemplate = styled.article`
+  .post {
+    border-bottom: ${props => props.theme.borderBottom};
+
+    h3 {
+      opacity: 0.7;
+      margin-bottom: 0.3rem;
+    }
+
+    p {
+      margin-top: 0.5rem;
+    }
+
+    .gatsby-highlight {
+      margin-bottom: 1.7rem;
+    }
+  }
+
+  .post-date {
+    opacity: 0.6;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+  }
+
+  .post-image {
+    width: 100%;
+  }
+`
+
+export default ({ data, location }) => {
   const {
     post: {
       id,
@@ -43,27 +71,22 @@ const BlogPostTemplate = ({ data, location }) => {
         description={description || excerpt}
         imageSrc={heroImage}
       />
-      <article className="content">
-        <header>
-          <h1 className="post-title">{title}</h1>
-        </header>
-        <div
-          className="post-image"
-          style={{
-            backgroundImage: `Url(${heroImage})`,
-          }}
-        ></div>
+      <BlogPostTemplate className="content">
+        <h1 className="has-text-centered">{title}</h1>
+
+        <img className="post-image" src={heroImage} alt="" />
+
         <p className="post-date">{date}</p>
         <section className="post" dangerouslySetInnerHTML={{ __html: html }} />
         <div className="post-meta">
           {tags && tags.length ? (
-            <div className="post-meta__block">
-              <span className="post-meta__title">Tags:</span>
+            <div>
+              <span>Tags:</span>
               <Tags tags={tags} />
             </div>
           ) : null}
-          <div className="post-meta__block">
-            <span className="post-meta__title">Share:</span>
+          <div>
+            <span>Share:</span>
             <Social
               socialConfig={{
                 twitterHandle,
@@ -76,13 +99,11 @@ const BlogPostTemplate = ({ data, location }) => {
             />
           </div>
         </div>
-      </article>
+      </BlogPostTemplate>
       <Disqus.DiscussionEmbed {...disqusConfig} />
     </Layout>
   )
 }
-
-export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
