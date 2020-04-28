@@ -1,9 +1,24 @@
 import React, { useState } from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
-import "./nav.scss"
+import styled from "styled-components"
 
-const Nav = () => {
+const Nav = styled.nav`
+  .navbar-item {
+    opacity: 0.65;
+    font-weight: bold;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:not(:last-child) {
+      padding-right: 1.6em;
+    }
+  }
+`
+
+export default () => {
   const [isActive, setIsActive] = useState(false)
 
   const data = useStaticQuery(graphql`
@@ -29,7 +44,7 @@ const Nav = () => {
   }
 
   return (
-    <nav className="navbar" role="navigation" aria-label="main navigation">
+    <Nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="container">
         <div className="navbar-brand">
           <Link className="navbar-item" to="/">
@@ -59,8 +74,6 @@ const Nav = () => {
           </div>
         </div>
       </div>
-    </nav>
+    </Nav>
   )
 }
-
-export default Nav

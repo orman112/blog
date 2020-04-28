@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faFacebookF,
@@ -13,11 +14,67 @@ import {
   TwitterShareButton,
   RedditShareButton,
 } from "react-share"
-//Styles
-import "./social.scss"
 
-const Social = ({ socialConfig, tags }) => (
-  <div className="post-social">
+const Social = styled.div`
+  .button {
+    margin: 0.5rem;
+    font-size: 0.9em;
+    &.linkedin {
+      background-color: ${props => props.theme.brandColors.linkedin};
+      color: ${props => props.theme.brandColors.linkedin};
+      border: 1px solid ${props => props.theme.brandColors.linkedin};
+      background-color: #fff;
+      &:hover {
+        background-color: ${props => props.theme.brandColors.linkedin};
+        border-color: ${props => props.theme.brandColors.linkedin};
+        color: #fff;
+      }
+    }
+    &.facebook {
+      background-color: ${props => props.theme.brandColors.facebook};
+      color: ${props => props.theme.brandColors.facebook};
+      border: 1px solid ${props => props.theme.brandColors.facebook};
+      background-color: #fff;
+      &:hover {
+        background-color: ${props => props.theme.brandColors.facebook};
+        border-color: ${props => props.theme.brandColors.facebook};
+        color: #fff;
+      }
+    }
+    &.twitter {
+      background-color: ${props => props.theme.brandColors.twitter};
+      color: ${props => props.theme.brandColors.twitter};
+      border: 1px solid ${props => props.theme.brandColors.twitter};
+      background-color: #fff;
+      &:hover {
+        background-color: ${props => props.theme.brandColors.twitter};
+        border-color: ${props => props.theme.brandColors.twitter};
+        color: #fff;
+      }
+    }
+    &.reddit {
+      background-color: ${props => props.theme.brandColors.reddit};
+      color: ${props => props.theme.brandColors.reddit};
+      border: 1px solid ${props => props.theme.brandColors.reddit};
+      background-color: #fff;
+      &:hover {
+        background-color: ${props => props.theme.brandColors.reddit};
+        border-color: ${props => props.theme.brandColors.reddit};
+        color: #fff;
+      }
+    }
+
+    .icon {
+      margin-right: 0.5em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+`
+
+export default ({ socialConfig, tags }) => (
+  <Social>
     <FacebookShareButton
       url={socialConfig.config.url}
       className="button is-outlined is-rounded facebook"
@@ -59,7 +116,7 @@ const Social = ({ socialConfig, tags }) => (
       </span>
       <span className="text">Reddit</span>
     </RedditShareButton>
-  </div>
+  </Social>
 )
 
 Social.propTypes = {
@@ -75,5 +132,3 @@ Social.propTypes = {
 Social.defaultProps = {
   tags: [],
 }
-
-export default Social
