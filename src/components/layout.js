@@ -19,7 +19,7 @@ export default ({ children }) => {
       <Layout>
         <Nav />
         <main>
-          <div className="container is-fluid">{children}</div>
+          <div className="container">{children}</div>
         </main>
         <Footer>The Frugal Dev</Footer>
       </Layout>

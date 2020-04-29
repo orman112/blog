@@ -6,11 +6,32 @@ import SEO from "../components/seo"
 //Styles
 import styled from "styled-components"
 
-const SiteTitle = styled.h1.attrs({
-  className: "title is-uppercase has-text-centered ",
-})`
-  padding-bottom: 2rem;
-  border-bottom: 2px solid rgba(34, 47, 62, 0.5);
+const HomePage = styled.div`
+  .level {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    @media (max-width: ${props => props.theme.mobile}) {
+      margin: 0;
+      max-width: 100%;
+    }
+
+    .message {
+      margin: 2em;
+
+      @media (max-width: ${props => props.theme.mobile}) {
+        margin: 2em 0;
+        width: 100%;
+      }
+    }
+  }
+
+  h1 {
+    padding-bottom: 2rem;
+    border-bottom: 2px solid rgba(34, 47, 62, 0.5);
+  }
 `
 
 export default ({ data, location }) => {
@@ -21,8 +42,10 @@ export default ({ data, location }) => {
       <SEO title="Home" />
       <section className="hero">
         <div className="hero-body">
-          <div className="container">
-            <SiteTitle>{siteTitle}</SiteTitle>
+          <HomePage>
+            <h1 className="title is-uppercase has-text-centered">
+              {siteTitle}
+            </h1>
             <p>
               Welcome to my blog! My name is <Link to="/about">Clayton</Link>{" "}
               and I enjoy learning all about new and interesting topics,
@@ -35,7 +58,28 @@ export default ({ data, location }) => {
               other areas that interest me as well. I also hope you find them
               useful and learn something along the way!
             </p>
-          </div>
+            <div className="level">
+              <section className="message has-text-centered is-info">
+                <div className="message-body">
+                  <p className="is-size-4">I'm here to geek out!</p>
+                  <p className="is-size-2">🤓</p>
+                  <button className="button is-info is-medium m-t-md">
+                    Technology
+                  </button>
+                </div>
+              </section>
+
+              <section className="message has-text-centered is-success">
+                <div className="message-body">
+                  <p className="is-size-4">Show me the money!</p>
+                  <p className="is-size-2">💰</p>
+                  <button className="button is-success is-medium m-t-md">
+                    Finance
+                  </button>
+                </div>
+              </section>
+            </div>
+          </HomePage>
         </div>
       </section>
     </Layout>
