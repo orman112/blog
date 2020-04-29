@@ -21,6 +21,11 @@ const BlogPostTemplate = styled.article`
       margin-top: 0.5rem;
     }
 
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+
     .gatsby-highlight {
       margin-bottom: 1.7rem;
     }

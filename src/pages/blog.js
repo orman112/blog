@@ -12,6 +12,7 @@ const Blog = ({ data }) => {
   return (
     <Layout location={data.location} title={siteTitle}>
       <SEO title="Blog" />
+
       <Articles posts={posts} />
     </Layout>
   )

@@ -63,9 +63,12 @@ export default ({ data, location }) => {
                 <div className="message-body">
                   <p className="is-size-4">I'm here to geek out!</p>
                   <p className="is-size-2">🤓</p>
-                  <button className="button is-info is-medium m-t-md">
+                  <a
+                    href="/tags/technology"
+                    className="button is-info is-medium m-t-md"
+                  >
                     Technology
-                  </button>
+                  </a>
                 </div>
               </section>
 
@@ -73,9 +76,12 @@ export default ({ data, location }) => {
                 <div className="message-body">
                   <p className="is-size-4">Show me the money!</p>
                   <p className="is-size-2">💰</p>
-                  <button className="button is-success is-medium m-t-md">
+                  <a
+                    href="/tags/finance"
+                    className="button is-success is-medium m-t-md"
+                  >
                     Finance
-                  </button>
+                  </a>
                 </div>
               </section>
             </div>

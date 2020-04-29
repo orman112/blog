@@ -18,9 +18,9 @@ export default ({ children }) => {
     <ThemeProvider theme={theme}>
       <Layout>
         <Nav />
-        <main>
+        <section className="section">
           <div className="container">{children}</div>
-        </main>
+        </section>
         <Footer>The Frugal Dev</Footer>
       </Layout>
     </ThemeProvider>

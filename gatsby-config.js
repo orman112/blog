@@ -45,7 +45,6 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          `gatsby-remark-emoji`,
           {
             resolve: `gatsby-remark-embed-gist`,
             options: {
@@ -65,6 +64,7 @@ module.exports = {
             options: {
               maxWidth: 1200,
               linkImagesToOriginal: false,
+              wrapperStyle: "margin-bottom: 500px",
             },
           },
           `gatsby-remark-copy-linked-files`,
