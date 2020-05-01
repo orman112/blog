@@ -37,7 +37,7 @@ A [**_disjoint-set_**](https://en.wikipedia.org/wiki/Disjoint-set_data_structure
 
 ![Quick-Find Illustration](./quick-find-illustration.svg "Quick find illustration")
 
-### Implementation of Quick Find
+### Quick Find Implementation
 
 ```typescript
 import DisjointSet from "./DisjointSet"
@@ -51,8 +51,8 @@ class QuickFind implements DisjointSet {
     for (let i = 0; i < quantity; i++) this.disjointSet[i] = i
   }
 
-  find = (p: number, q: number): boolean => {
-    return this.disjointSet[p] === this.disjointSet[q]
+  connected = (p: number, q: number): boolean => {
+    return this.disjointSet[p] === q
   }
 
   union = (p: number, q: number): void => {
@@ -97,7 +97,7 @@ class QuickUnion implements DisjointSet {
     for (let i = 0; i < quantity; i++) this.disjointSet[i] = i
   }
 
-  private root(valueToCheck: number) {
+  private root(valueToCheck: number): number {
     while (this.disjointSet[valueToCheck] !== valueToCheck) {
       valueToCheck = this.disjointSet[valueToCheck]
     }
@@ -105,11 +105,11 @@ class QuickUnion implements DisjointSet {
     return valueToCheck
   }
 
-  private isDirectChild(p: number, q: number) {
-    return this.disjointSet[p] === this.disjointSet[q]
+  private isDirectChild(p: number, q: number): boolean {
+    return this.disjointSet[p] === q
   }
 
-  find(p: number, q: number): boolean {
+  connected(p: number, q: number): boolean {
     if (this.isDirectChild(p, q)) return true
 
     return this.root(p) === this.root(q)
@@ -125,3 +125,88 @@ class QuickUnion implements DisjointSet {
 
 export default QuickUnion
 ```
+
+## Improvements to Quick Union
+
+## Weighted Quick Union
+
+- We can improve Quick Union by _"weighting"_ our algorithm. What this means is that anytime a **_Union_** operation is performed, we will always link the root of the smaller tree to the root of the larger tree.
+  - This helps to keep the overall tree structure relatively flat, compared to a normal quick-union tree (as pictured below), and ensures each node is never too far from the overall root node.
+  - The **_Find_** query takes the time proportional to the depth of _p_ and _q_.
+    - Because we are always setting the root of the smaller tree to that of the larger tree, the depth of any node is **_at most_** _log N_ (where N is the number of nodes in the overall tree).
+
+![Weighted Quick-Union Tree Comparison](./weighted-quick-union-tree-comparison.svg "Weighted quick union tree comparison")
+
+### Weighted Quick Union Illustration
+
+![Weighted Quick-Union Illustration](./weighted-quick-union-illustration.svg "Weighted quick union illustration")
+
+### Weighted Quick Union Implementation
+
+For the weighted quick union implementation, you can see below that our **_Find_** query remains the same. For the **_Union_** operation, however, we are incrementing the size of the larger root by the size of the smaller root.
+
+```typescript
+import DisjointSet from "./DisjointSet"
+
+class WeightedQuickUnion implements DisjointSet {
+  disjointSet: number[]
+  size: number[]
+
+  constructor(quantity: number) {
+    this.disjointSet = []
+    this.size = []
+
+    for (let i = 0; i < quantity; i++) {
+      this.disjointSet[i] = i
+      this.size[i] = 1
+    }
+  }
+
+  private root(valueToCheck: number): number {
+    while (this.disjointSet[valueToCheck] !== valueToCheck) {
+      valueToCheck = this.disjointSet[valueToCheck]
+    }
+
+    return valueToCheck
+  }
+
+  private isDirectChild(p: number, q: number): boolean {
+    return this.disjointSet[p] === this.disjointSet[q]
+  }
+
+  connected(p: number, q: number): boolean {
+    if (this.isDirectChild(p, q)) return true
+
+    return this.root(p) === this.root(q)
+  }
+
+  union(p: number, q: number): void {
+    const rootP = this.root(p)
+    const rootQ = this.root(q)
+
+    if (rootP === rootQ) return
+
+    if (this.size[rootP] <= this.size[rootQ]) {
+      this.disjointSet[rootP] = rootQ
+      this.size[rootQ] += this.size[rootP]
+    } else {
+      this.disjointSet[rootQ] = rootP
+      this.size[rootP] += this.size[rootQ]
+    }
+  }
+}
+
+export default WeightedQuickUnion
+```
+
+## Weighted Quick Union with Path Compression
+
+- This algorithm can be improved even further by compressing the path to the overall root.
+  - So, after computing the root of _p_, for any node that was passed over (6, 3, 1 in the following illustration), we'll set it to point to the new root as well.
+  - This causes our overall tree to flatten even further, decreasing the time complexity to _almost_ linear.
+
+### Weighted Quick Union with Path Compression Illustration
+
+![Weighted Quick-Union with Path Compression Illustration](./weighted-quick-union-path-compression-illustration.svg "Weighted quick union with path compression illustration")
+
+### Weighted QU with Path Compression Implementation
