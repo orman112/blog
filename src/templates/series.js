@@ -5,7 +5,7 @@ import PropTypes from "prop-types"
 import Articles from "../components/articles"
 import Layout from "../components/layout"
 
-const Tags = ({ data }) => {
+const Series = ({ data }) => {
   const {
     allMarkdownRemark: { edges },
   } = data
@@ -17,9 +17,9 @@ const Tags = ({ data }) => {
   )
 }
 
-Tags.propTypes = {
+Series.propTypes = {
   pageContext: PropTypes.shape({
-    tag: PropTypes.string.isRequired,
+    series: PropTypes.string.isRequired,
   }),
   data: PropTypes.shape({
     totalCount: PropTypes.number.isRequired,
@@ -38,13 +38,15 @@ Tags.propTypes = {
   }),
 }
 
-export default Tags
+export default Series
 
 export const pageQuery = graphql`
-  query($tag: String) {
+  query($series: String) {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] }, published: { eq: true } } }
+      filter: {
+        frontmatter: { series: { in: [$series] }, published: { eq: true } }
+      }
     ) {
       totalCount
       edges {

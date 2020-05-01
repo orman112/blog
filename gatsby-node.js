@@ -7,6 +7,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const blogPostTemplate = path.resolve(`./src/templates/blog-post.js`)
   const tagsTemplate = path.resolve(`./src/templates/tags.js`)
+  const seriesTemplate = path.resolve("./src/templates/series.js")
   const result = await graphql(
     `
       {
@@ -30,6 +31,11 @@ exports.createPages = async ({ graphql, actions }) => {
             fieldValue
           }
         }
+        seriesGroup: allMarkdownRemark {
+          group(field: frontmatter___series) {
+            fieldValue
+          }
+        }
       }
     `
   )
@@ -41,6 +47,7 @@ exports.createPages = async ({ graphql, actions }) => {
   //pages to create with templates
   const posts = result.data.postsRemark.edges
   const tags = result.data.tagsGroup.group
+  const series = result.data.seriesGroup.group
 
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
@@ -63,6 +70,16 @@ exports.createPages = async ({ graphql, actions }) => {
       component: tagsTemplate,
       context: {
         tag: tag.fieldValue,
+      },
+    })
+  })
+
+  series.forEach(series => {
+    createPage({
+      path: `/series/${_.kebabCase(series.fieldValue)}/`,
+      component: seriesTemplate,
+      context: {
+        series: series.fieldValue,
       },
     })
   })
