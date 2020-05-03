@@ -210,3 +210,18 @@ export default WeightedQuickUnion
 ![Weighted Quick-Union with Path Compression Illustration](./weighted-quick-union-path-compression-illustration.svg "Weighted quick union with path compression illustration")
 
 ### Weighted QU with Path Compression Implementation
+
+For this implementation, we're going to update our `root` method so that for each traversal to an object's root, we'll set the value of every other node in the path to point to it's grandparent, thereby halving the length to the object's root.
+
+```typescript
+private root(valueToCheck: number): number {
+  while (this.disjointSet[valueToCheck] !== valueToCheck) {
+    this.disjointSet[valueToCheck] = this.disjointSet[
+      this.disjointSet[valueToCheck]
+    ];
+    valueToCheck = this.disjointSet[valueToCheck];
+  }
+
+  return valueToCheck;
+}
+```
