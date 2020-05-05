@@ -211,7 +211,7 @@ export default WeightedQuickUnion
 
 ### Weighted QU with Path Compression Implementation
 
-For this implementation, we're going to update our `root` method so that for each traversal to an object's root, we'll set the value of every other node in the path to point to it's grandparent, thereby halving the length to the object's root.
+For this implementation, we're going to update our `root` method so that for each traversal to an object's root, we'll set the value of every other node in the path to point to its grandparent, thereby halving the length to the object's root.
 
 ```typescript
 private root(valueToCheck: number): number {
