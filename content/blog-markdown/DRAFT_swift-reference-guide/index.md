@@ -13,7 +13,7 @@ description: ""
 
 **Let** - analogous to `const` in JS. Once it's declared, it cannot be mutated. Small subtlety here is that it can be initialized without being set, and eventually set later, but still **_only_** once.
 
-**Optionals** - If you're familiar with TypeScript, these are similar to nullable values. You declare an optional by appending a `?` at the end of the data type declaration. It's essentially telling swift, this property may or may not have a value associated with it. If not, the value is set to `nil` and no compilation errors are thrown. Any data type in Swift can be set as an optional.
+**Optionals** - If you're familiar with TypeScript, these are similar to nullable values. You declare an optional by appending a `?` at the end of the data type declaration. It's essentially telling Swift, this property may or may not have a value associated with it. If not, the value is set to `nil` and no compilation errors are thrown. Any data type in Swift can be set as an optional.
 
 - In order to retrieve a value from an optional, you must unwrap it in Swift. There are two methods to unwrapping an optional, a _forced_ unwrap where Swift pulls the value out without checking for its existence (the onus is on you to check this). The other (more streamlined) option is to store it in a temp variable if it exists, or keep moving along if it doesn't. Both options shown below:
 
@@ -136,7 +136,7 @@ print(newBook.overview()) // "1984 is a Fantasy book, written by George Orwell i
 
 ## Closures
 
-Closures in swift are blocks of code that you intend to pass to a function or method. You can think of this as an anonymous function you might pass to another function in JavaScript. There are a few ways to write and pass closures and the following three ways are all valid syntax for declaring closures:
+Closures in Swift are blocks of code that you intend to pass to a function or method. You can think of this as an anonymous function you might pass to another function in JavaScript. There are a few ways to write and pass closures and the following three ways are all valid syntax for declaring closures:
 
 ```
 struct Product {
@@ -174,7 +174,7 @@ let nameSortedProducts = allProducts.sorted(by: {
         return false
     }
 })
-// 3) using the reserved $index swift provides
+// 3) using the reserved $index Swift provides
 let sellerSortedProducts = allProducts.sorted { $0.seller <= $1.seller }
 sellerSortedProducts
 ```
@@ -205,6 +205,32 @@ let text = "Swift is a tough language!"
 print(text.makeSpongebobCase()) // SwIfT Is a tOuGh lAnGuAgE!
 ```
 
+## Protocols
+
+A `protocol` in Swift is a way to formalize how a class or struct should behave and what they can do. The easiest way to describe a protocol is essentially a manuscript or list of requirements necessary to implement some behavior or code (in other languages this could be analogous to an `interface`).
+
+The syntax for implementing a protocol is by first inheriting any base classes needed, and then protocols at the end of the class declaration:
+
+`class MySubClass: MySuperClass, SomeProtocol { }`
+
+Unlike classes, you can adopt multiple protocols in Swift by simply separating each one with commas.
+
+Defining a protocol is as simple as listing any required properties and methods needed to implement said protocol:
+
+```
+protocol DogProtocol {
+    // what methods are required?
+    func bark()
+    func eat()
+    func drink()
+
+    // what properties/data types are required?
+    var name: String { get set }
+    var breed: String { get }
+    var age: Int { get set }
+}
+```
+
 ## Some caveats to consider
 
 - Parentheses are not required in `if` statements, but are ok. The `{}` **_are_** required, however.
@@ -220,3 +246,46 @@ print(text.makeSpongebobCase()) // SwIfT Is a tOuGh lAnGuAgE!
           //do something else
   }
   ```
+- If a function has the possibility of throwing an error, the `throws` keyword must be explicitly stated in the function definition, for example:
+  - `func makeNetworkCall(url: String) throws -> Int`
+- When implementing a function that may throw an error, a `do-catch` block might be necessary (similar to a `try-catch` block in other languages).
+  - For example, calling the function above might look something like:
+  ```
+  do {
+      result = try makeNetworkCall("www.example.com")
+  } catch {
+      // ...do something here
+  }
+  ```
+  - If you don't care about catching the error, you can shorten the above code even more using an optional:
+  ```
+  if let result = try? makeNetworkCall("www.example.com") {
+      print result
+  }
+  ```
+- A good alternative to a bunch of `if/else` conditions in a function that has a number of optional parameters is the `guard` clause. Any `guard` must have an `else` block that contains an exit condition if the `guard` evaluates to true:
+
+```
+    func myOptionalFunction(param1: String?, param2: Int?, param 3: String?) {
+        guard let p1 = param1,
+            let p2 = param2,
+            let p3 = param3 else {
+            // ...return/throw/break/continue statement
+        }
+
+        // p1, p2, and p3 all accessible here since guard clause was used
+    }
+```
+
+- Another useful keyword is `defer`. If you find yourself needing to close a connection, or dispose of an object in multiple places, this is a crucial keyword to take advantage of. In Swift, `defer` will ensure that a block of code runs before exiting the calling block of code (whether thats through a return statement, throwing an error, etc). Defining a `defer` block is simple:
+
+```
+func processRequest() {
+    openConnection()
+
+    defer {
+        // something that needs to happen at the end of this function, regardless of what happens during the call of the function
+        closeConnection()
+    }
+}
+```
