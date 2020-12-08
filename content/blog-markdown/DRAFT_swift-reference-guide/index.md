@@ -1,23 +1,29 @@
 ---
 title: Swift Reference Guide (working title)
 published: false
-date: ""
-tags: ["technology"]
-unsplash-image-id: ""
-description: ""
+date: "2020-12-07"
+tags: ["technology, swift, ios"]
+unsplash-image-id: "VJeAZr-Bu9E"
+description: "Native mobile development can seem like a steep learning curve, especially for web developers who are used to one language -- JavaScript. In this post, I'll try and clear up some concepts in Swift that make it easier for JavaScript developers to reference begin understanding the language that is so crucial to iOS development."
 ---
+
+## Introduction
+
+If you're like me, mobile development can seem intimidating. I was used to this world where JavaScript was the hammer that solved all problems when it came to web development. There are solutions to mobile development in the JavaScript ecosystem (like [React Native](https://reactnative.dev/)) that helped bridge that gap a bit, but I still felt this desire to really understand what was happening behind the curtain. In order to kickstart this journey into mobile development, I began in the most obvious starting place, learning [Swift](https://developer.apple.com/swift/). Swift is the official language created by Apple to develop applications for iOS, macOS, watchOS and tvOS. In this introduction to Swift, I'll explore different concepts and try explaining how they relate to their counterparts (if one exists) in JavaScript. Let's get started!
+
+![JavaScript All The Things](./all-the-things.jpeg, "all the things meme")
 
 ## The Basics
 
 **Var** - similar to the `var` and `let` keyword in JS. Used to initialize scoped variables.
 
-**Let** - analogous to `const` in JS. Once it's declared, it cannot be mutated. Small subtlety here is that it can be initialized without being set, and eventually set later, but still **_only_** once.
+**Let** - analogous to `const` in JS. Once it's declared, it cannot be mutated. Small subtlety here in that it can be initialized without an initial value, and eventually set later, but still may only be set **_once_**.
 
-**Optionals** - If you're familiar with TypeScript, these are similar to nullable values. You declare an optional by appending a `?` at the end of the data type declaration. It's essentially telling Swift, this property may or may not have a value associated with it. If not, the value is set to `nil` and no compilation errors are thrown. Any data type in Swift can be set as an optional.
+**Optionals** - If you're familiar with TypeScript, these are very similar to nullable values. You declare an optional by appending a `?` at the end of the data type declaration. It's essentially telling Swift, _"this property may or may not have a value associated with it"_. If it does not, the value is set to `nil` and no compilation errors are thrown. Any data type in Swift can be set as an optional.
 
-- In order to retrieve a value from an optional, you must unwrap it in Swift. There are two methods to unwrapping an optional, a _forced_ unwrap where Swift pulls the value out without checking for its existence (the onus is on you to check this). The other (more streamlined) option is to store it in a temp variable if it exists, or keep moving along if it doesn't. Both options shown below:
+- _Side note:_ In order to retrieve a value from an optional, you must **_unwrap_** it in Swift. There are two methods to unwrapping an optional, a _forced_ unwrap where Swift pulls the value out without checking for its existence (the onus is on you to check this). The other,more streamlined, approach is to store it in a temp variable if a value exists, or keep moving along if it doesn't. Both options are shown below:
 
-```
+```Swift
 // declare your optional
 var optionalString: String?
 
@@ -38,9 +44,9 @@ if optionalString != nil {
 
 ## Data Types
 
-All of your primitive data types (`bool`, `char`, `int`, `float`, etc) are available in Swift, as well as some of your other common types (`string`, `array`). There are also a few others you might not be familiar with if you're coming from JS (`dictionary`, `set`, `enum`). Again, if you're familiar with TypeScript, the syntax may look pretty familiar:
+All of your typical primitive data types (`bool`, `char`, `int`, `float`, etc) are available in Swift, as well as some of your other common types found in JavaScript (`string`, `array`). There are even a few others you might not be familiar with if you're coming from a pure JavaScript background (`dictionary`, `set`, `enum`). If you're used to TypeScript, the syntax for declaring these data types may look familiar:
 
-```
+```Swift
 var myString: String
 var myInt: Int
 var myIntArray: [Int] // Array of Int
@@ -52,9 +58,9 @@ enum animalEnum {
 }
 ```
 
-With strings also comes string interpolation, which does exist in Swift but the syntax may look a bit odd:
+With the string data type also comes string interpolation, which does exist in Swift but the syntax may look a bit different than what you're used to:
 
-```
+```Swift
 let firstName = "Foo"
 let lastName = "Barr"
 let age = 30
@@ -65,9 +71,9 @@ print("Hello, my name is \(firstName) \(lastName), and I'm \(age) years old!")
 
 ## Functions
 
-Functions are structured in a similar way to what you might be used to, with a few minor differences thrown in. Functions are declared with the `func` keyword. Any parameters must identify their data type, and any calling function must explicitly define the arguments it's passing to the function.
+Functions are structured in a similar way to what you might be used to, with a few minor differences thrown in. Functions are declared with the `func` keyword. Any parameters must identify their data type, and any calling function must explicitly define the arguments it's passing to the function (there are times when this restriction isn't true, but for the sake of this article, I'll stick with the rule of thumb here).
 
-```
+```Swift
 func printHappyBirthdayMessage(age: Int, name: String) {
     print("Happy birthday, \(name)! I can't believe you're already \(age) years old!)
 }
@@ -75,9 +81,9 @@ func printHappyBirthdayMessage(age: Int, name: String) {
 printHappyBirthdayMessage(age: 30, name: "Foo Bar")
 ```
 
-If you're returning a value, you must identify its data type as well, using the arrow syntax (this may look familiar to arrow functions in JS):
+If you are returning a value, you must specify its data type as well, using the arrow syntax (this may look familiar to arrow functions in JavaScript, except with a single dash instead of an `=`):
 
-```
+```Swift
 func calculateSqFeet(length: Int, width: Int) -> Int {
     return length * width
 }
@@ -85,11 +91,11 @@ func calculateSqFeet(length: Int, width: Int) -> Int {
 
 ## Loops
 
-There are three major types of loops in Swift: `while`, `repeat-while` (aka `do-while`), and `for-in` loops. All of these should sound familiar if you're coming from JavaScript. The main one that you'll probably find yourself using is the `for-in` and its syntax is pretty much the same as JavaScript.
+There are three major types of loops in Swift, and are all pretty common in JavaScript: `while`, `repeat-while` (analogous to `do-while` in JavaScript), and `for-in` loops. The main one that you'll find yourself using is the `for-in` and its syntax is pretty much the same as JavaScript.
 
-There are some cool things you can do with loops though, including using the `range` operator to increment by 1:
+In Swift, there are some additional utilities you can use with loops as well, including `range` operator to increment by 1:
 
-```
+```Swift
 for number in 0...10 {
     print(number) // this will print out all numbers 0 to 10, including 10
 }
@@ -99,13 +105,29 @@ for number in 0..<10 {
 }
 ```
 
+Decrementing is just as easy. There are also going to be times where incrementing one by one is not sufficient. In Swift, using `strides` make both of these situations a breeze:
+
+```Swift
+for number in stride(from: 0, through: 256, by: 16) {
+    print(number) // this will print out all numbers 0 to 256, including 256, and increment by 16 at a time
+}
+
+for number in stride(from: 0, to: 256, by: 16) {
+    print(number) // this will print out all numbers 0 to and increment by 16 at a time
+}
+
+for number in stride(from: 100, through: 0, by: -10) {
+    print(number) // this will print out all numbers 100 to 0, including 0, and decrement by 10 at a time
+}
+```
+
 ## Structs and Classes
 
-Structs are very similar to classes in that they group pieces of information into one body or object. A few differences between the two are structs cannot implement inheritance and are considered value types, whereas classes are considered reference types in Swift.
+Structs are very similar to classes in that they group related pieces of information into one body or object. A few differences between the two are that structs cannot implement inheritance and are considered value types, whereas classes are considered reference types in Swift.
 
-Structs also support initializers that get called anytime a new struct is instantiated, but they are not required. The difference here is that classes do require initializers (think constructors in other languages) if default values are not provided. Classes also allow for `de-initializers` that are used for cleanup after a class reference is removed from memory by the ARC (Automatic Reference Counting), otherwise known as the garbage collector in other languages. Both classes and structs can contain `protocols` and `subscripts` as well.
+Structs also support initializers that get called anytime a new struct is instantiated, but they are **_not required_**. The difference here is that classes do require initializers (think constructors in other languages) if default values are not provided. Classes also allow for `de-initializers` that are used to cleanup after a class reference is removed from memory by the ARC (Automatic Reference Counting), otherwise known as the garbage collector in other languages. Both classes and structs can contain _protocols_ (discussed a bit later in this article) and [_subscripts_](https://docs.swift.org/swift-book/LanguageGuide/Subscripts.html) as well.
 
-```
+```Swift
 struct Book {
     // static properties
     var title: String
@@ -134,11 +156,39 @@ var newBook = Book(title: "1984", author: "George Orwell", genre: "Fantasy", pub
 print(newBook.overview()) // "1984 is a Fantasy book, written by George Orwell in 1949"
 ```
 
+```Swift
+class Animal {
+    var numberOfLegs: Int
+    init() {
+        self.numberOfLegs = 2
+    }
+
+    final func walk() { // using the final keyword ensures this function can't be overwritten
+        // ...walk function logic
+    }
+}
+
+class Dog : Animal {
+    override init() { // must use the override keyword here
+        super.init() // have to call superclass' init method first
+        super.numberOfLegs = 4 // to override a property
+    }
+
+    func bark () {
+        print("woof woof")
+    }
+}
+
+
+let myDog = Dog()
+print(myDog.numberOfLegs) // prints out 4
+```
+
 ## Closures
 
-Closures in Swift are blocks of code that you intend to pass to a function or method. You can think of this as an anonymous function you might pass to another function in JavaScript. There are a few ways to write and pass closures and the following three ways are all valid syntax for declaring closures:
+Closures in Swift are blocks of code that you intend to pass to a function or method. You can think of this as an anonymous function you might pass to another function in JavaScript. There are a few ways to write and pass closures and the following three solutions are all valid syntax for declaring closures:
 
-```
+```Swift
 struct Product {
     var id: Int
     var name: String
@@ -164,6 +214,7 @@ func sortByPrice(firstProduct: Product, secondProduct: Product) -> Bool {
 
 // 1) just pass in the defined function above
 let priceSortedProducts = allProducts.sorted(by: sortByPrice)
+
 // 2) using the "in" keyword
 let nameSortedProducts = allProducts.sorted(by: {
     (firstProduct: Product, secondProduct: Product) -> Bool
@@ -174,6 +225,7 @@ let nameSortedProducts = allProducts.sorted(by: {
         return false
     }
 })
+
 // 3) using the reserved $index Swift provides
 let sellerSortedProducts = allProducts.sorted { $0.seller <= $1.seller }
 sellerSortedProducts
@@ -183,9 +235,9 @@ As you can see in the last example, you can condense your closure down and even 
 
 ## Extensions
 
-A lot of times, you'll want to extend some behavior that might make it easier to reuse across your application. Swift makes it easy to extend almost all objects, structs, and classes by using the `extension` keyword. For example, if I wanted to add some functionality to the native `String` type, I could add the following extension method:
+A lot of times, you'll want to extend some behavior that might make it easier to reuse across your application. Swift makes it very easy to extend almost any object, struct, or class by using the `extension` keyword. For example, if I wanted to add some functionality to the native `String` type, I could add the following extension method:
 
-```
+```Swift
 extension String {
     func makeSpongebobCase() -> String {
         var newString = ""
@@ -205,19 +257,19 @@ let text = "Swift is a tough language!"
 print(text.makeSpongebobCase()) // SwIfT Is a tOuGh lAnGuAgE!
 ```
 
+![Mocking Spongebob Meme](./spongebob.jpeg, "mocking spongebob meme")
+
 ## Protocols
 
-A `protocol` in Swift is a way to formalize how a class or struct should behave and what they can do. The easiest way to describe a protocol is essentially a manuscript or list of requirements necessary to implement some behavior or code (in other languages this could be analogous to an `interface`).
+A _protocol_ in Swift is a way to formalize a class or struct's properties and behavior. The easiest way to visualize a protocol is to think of it as a manuscript or list of requirements necessary to implement some behavior or code (in other languages this could be described as an _interface_).
 
-The syntax for implementing a protocol is by first inheriting any base classes needed, and then protocols at the end of the class declaration:
+Implementing a protocol is simple, but there a few things to note. If you need to inherit a super class, it **_must_** be defined first. Then you can begin pulling in any necessary protocols. Unlike classes, you can adopt multiple protocols in Swift by separating each one with a comma:
 
-`class MySubClass: MySuperClass, SomeProtocol { }`
-
-Unlike classes, you can adopt multiple protocols in Swift by simply separating each one with commas.
+`class MySubClass: MySuperClass, SomeProtocol, SecondProtocol { }`
 
 Defining a protocol is as simple as listing any required properties and methods needed to implement said protocol:
 
-```
+```Swift
 protocol DogProtocol {
     // what methods are required?
     func bark()
@@ -233,11 +285,13 @@ protocol DogProtocol {
 
 ## Some caveats to consider
 
-- Parentheses are not required in `if` statements, but are ok. The `{}` **_are_** required, however.
-- Semi-colons are not required to end a line of code.
-- Switch statements do not _flow through_, meaning a `break` is not needed as an exit condition in a case block. Once a matching case has been found, the following code runs and the switch statement is exited.
+I hope all of the above helped to give a good introduction into Swift, especially if you're coming from a more web-based language like JavaScript. Outside of the foundational programming concepts, there are a few minor components to be aware of when making your way over to the Swift programming language:
+
+- Parentheses are not required in `if` statements, but are allowed. The opening and closing brackets (`{}`) _are_ required, however.
+- Semi-colons are also not required to end a line of code.
+- Switch statements do not _flow through_, meaning a `break` keyword is not needed as an exit condition in a case block. Once a matching case has been found, the switch statement exits after the case block executes.
   - Multiple case conditions can be checked at once, however, by using comma delimited values:
-  ```
+  ```Swift
   switch (myValue) {
       // checking multiple cases
       case 1, 2, 3:
@@ -250,7 +304,7 @@ protocol DogProtocol {
   - `func makeNetworkCall(url: String) throws -> Int`
 - When implementing a function that may throw an error, a `do-catch` block might be necessary (similar to a `try-catch` block in other languages).
   - For example, calling the function above might look something like:
-  ```
+  ```Swift
   do {
       result = try makeNetworkCall("www.example.com")
   } catch {
@@ -258,14 +312,14 @@ protocol DogProtocol {
   }
   ```
   - If you don't care about catching the error, you can shorten the above code even more using an optional:
-  ```
+  ```Swift
   if let result = try? makeNetworkCall("www.example.com") {
       print result
   }
   ```
-- A good alternative to a bunch of `if/else` conditions in a function that has a number of optional parameters is the `guard` clause. Any `guard` must have an `else` block that contains an exit condition if the `guard` evaluates to true:
+- A good alternative to writing a bunch of `if/else` conditions in a function that has a number of optional parameters is using the `guard` clause. Any `guard` must have an `else` block that contains an exit condition if the `guard` evaluates to false:
 
-```
+```Swift
     func myOptionalFunction(param1: String?, param2: Int?, param 3: String?) {
         guard let p1 = param1,
             let p2 = param2,
@@ -277,14 +331,15 @@ protocol DogProtocol {
     }
 ```
 
-- Another useful keyword is `defer`. If you find yourself needing to close a connection, or dispose of an object in multiple places, this is a crucial keyword to take advantage of. In Swift, `defer` will ensure that a block of code runs before exiting the calling block of code (whether thats through a return statement, throwing an error, etc). Defining a `defer` block is simple:
+- One final keyword to take note of is `defer`. If you find yourself needing to close a connection, or dispose of an object in multiple places, this is a crucial keyword to take advantage of. In Swift, `defer` will ensure that a block of code runs before exiting the calling block of code (whether thats through a return statement, throwing an error, etc). Defining a `defer` block is simple:
 
-```
+```Swift
 func processRequest() {
     openConnection()
 
     defer {
-        // something that needs to happen at the end of this function, regardless of what happens during the call of the function
+        // something that needs to happen at the end of this function,
+        // regardless of what happens during the call of the function
         closeConnection()
     }
 }
