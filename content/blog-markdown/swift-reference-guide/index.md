@@ -1,7 +1,7 @@
 ---
-title: Swift Reference Guide (working title)
-published: false
-date: "2020-12-07"
+title: Transitioning from JavaScript to Swift
+published: true
+date: "2021-01-04"
 tags: ["technology, swift, ios"]
 unsplash-image-id: "VJeAZr-Bu9E"
 description: "Native mobile development can seem like a steep learning curve, especially for web developers who are used to one language -- JavaScript. In this post, I'll try and clear up some concepts in Swift that make it easier for JavaScript developers to reference begin understanding the language that is so crucial to iOS development."
@@ -11,7 +11,7 @@ description: "Native mobile development can seem like a steep learning curve, es
 
 If you're like me, mobile development can seem intimidating. I was used to this world where JavaScript was the hammer that solved all problems when it came to web development. There are solutions to mobile development in the JavaScript ecosystem (like [React Native](https://reactnative.dev/)) that helped bridge that gap a bit, but I still felt this desire to really understand what was happening behind the curtain. In order to kickstart this journey into mobile development, I began in the most obvious starting place, learning [Swift](https://developer.apple.com/swift/). Swift is the official language created by Apple to develop applications for iOS, macOS, watchOS and tvOS. In this introduction to Swift, I'll explore different concepts and try explaining how they relate to their counterparts (if one exists) in JavaScript. Let's get started!
 
-![JavaScript All The Things](./all-the-things.jpeg, "all the things meme")
+![JavaScript All The Things](./all-the-things.jpeg "all the things meme")
 
 ## The Basics
 
@@ -257,7 +257,7 @@ let text = "Swift is a tough language!"
 print(text.makeSpongebobCase()) // SwIfT Is a tOuGh lAnGuAgE!
 ```
 
-![Mocking Spongebob Meme](./spongebob.jpeg, "mocking spongebob meme")
+![Mocking Spongebob Meme](./spongebob.jpeg "mocking spongebob meme")
 
 ## Protocols
 
