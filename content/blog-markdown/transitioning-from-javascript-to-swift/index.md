@@ -2,9 +2,9 @@
 title: Transitioning from JavaScript to Swift
 published: true
 date: "2021-01-04"
-tags: ["technology", "swift", "iOS"]
+tags: ["technology", "swift", "ios", "javascript", "mobile"]
 unsplash-image-id: "VJeAZr-Bu9E"
-description: "Native mobile development can seem like a steep learning curve, especially for web developers who are used to one language -- JavaScript. In this post, I'll try and clear up some concepts in Swift that make it easier for JavaScript developers to reference begin understanding the language that is so crucial to iOS development."
+description: "Native mobile development can seem like a steep learning curve, especially for web developers who are used to one language -- JavaScript. In this post, I'll try and clear up some concepts in Swift that make it easier for JavaScript developers to reference the language that is so crucial to iOS development."
 ---
 
 ## Introduction
@@ -21,7 +21,7 @@ If you're like me, mobile development can seem intimidating. I was used to this 
 
 **Optionals** - If you're familiar with TypeScript, these are very similar to nullable values. You declare an optional by appending a `?` at the end of the data type declaration. It's essentially telling Swift, _"this property may or may not have a value associated with it"_. If it does not, the value is set to `nil` and no compilation errors are thrown. Any data type in Swift can be set as an optional.
 
-- _Side note:_ In order to retrieve a value from an optional, you must **_unwrap_** it in Swift. There are two methods to unwrapping an optional, a _forced_ unwrap where Swift pulls the value out without checking for its existence (the onus is on you to check this). The other,more streamlined, approach is to store it in a temp variable if a value exists, or keep moving along if it doesn't. Both options are shown below:
+- _Side note:_ In order to retrieve a value from an optional, you must **_unwrap_** it in Swift. There are two methods to unwrapping an optional, a _forced_ unwrap where Swift pulls the value out without checking for its existence (the onus is on you to check this). The other, more streamlined, approach is to store it in a temp variable if a value exists, or keep moving along if it doesn't. Both options are shown below:
 
 ```Swift
 // declare your optional
