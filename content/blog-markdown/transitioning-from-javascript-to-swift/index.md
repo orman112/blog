@@ -2,7 +2,7 @@
 title: Transitioning from JavaScript to Swift
 published: true
 date: "2021-01-04"
-tags: ["technology, swift, ios"]
+tags: ["technology", "swift", "iOS"]
 unsplash-image-id: "VJeAZr-Bu9E"
 description: "Native mobile development can seem like a steep learning curve, especially for web developers who are used to one language -- JavaScript. In this post, I'll try and clear up some concepts in Swift that make it easier for JavaScript developers to reference begin understanding the language that is so crucial to iOS development."
 ---
@@ -81,7 +81,7 @@ func printHappyBirthdayMessage(age: Int, name: String) {
 printHappyBirthdayMessage(age: 30, name: "Foo Bar")
 ```
 
-If you are returning a value, you must specify its data type as well, using the arrow syntax (this may look familiar to arrow functions in JavaScript, except with a single dash instead of an `=`):
+If you are returning a value, you must specify its data type as well, using the arrow syntax (this may look familiar to arrow functions in JavaScript, except with a single dashed arrow instead of `=>`):
 
 ```Swift
 func calculateSqFeet(length: Int, width: Int) -> Int {
@@ -166,6 +166,10 @@ class Animal {
     final func walk() { // using the final keyword ensures this function can't be overwritten
         // ...walk function logic
     }
+
+    deinit {
+        // do any cleanup work here
+    }
 }
 
 class Dog : Animal {
@@ -231,7 +235,7 @@ let sellerSortedProducts = allProducts.sorted { $0.seller <= $1.seller }
 sellerSortedProducts
 ```
 
-As you can see in the last example, you can condense your closure down and even remove the `return` statement if you can manage to fit it all on one line of code.
+As you can see in the last example, you can condense your closure down and even remove the `return` statement if it fits on one line of code.
 
 ## Extensions
 
@@ -290,7 +294,7 @@ I hope all of the above helped to give a good introduction into Swift, especiall
 - Parentheses are not required in `if` statements, but are allowed. The opening and closing brackets (`{}`) _are_ required, however.
 - Semi-colons are also not required to end a line of code.
 - Switch statements do not _flow through_, meaning a `break` keyword is not needed as an exit condition in a case block. Once a matching case has been found, the switch statement exits after the case block executes.
-  - Multiple case conditions can be checked at once, however, by using comma delimited values:
+  - Multiple case conditions can be checked at once, using comma delimited values:
   ```Swift
   switch (myValue) {
       // checking multiple cases
@@ -302,19 +306,19 @@ I hope all of the above helped to give a good introduction into Swift, especiall
   ```
 - If a function has the possibility of throwing an error, the `throws` keyword must be explicitly stated in the function definition, for example:
   - `func makeNetworkCall(url: String) throws -> Int`
-- When implementing a function that may throw an error, a `do-catch` block might be necessary (similar to a `try-catch` block in other languages).
+- When calling a function that may throw an error, a `do-catch` block might be necessary (similar to a `try-catch` block in other languages).
   - For example, calling the function above might look something like:
   ```Swift
   do {
       result = try makeNetworkCall("www.example.com")
   } catch {
-      // ...do something here
+      // ...handle error here
   }
   ```
   - If you don't care about catching the error, you can shorten the above code even more using an optional:
   ```Swift
   if let result = try? makeNetworkCall("www.example.com") {
-      print result
+      print(result)
   }
   ```
 - A good alternative to writing a bunch of `if/else` conditions in a function that has a number of optional parameters is using the `guard` clause. Any `guard` must have an `else` block that contains an exit condition if the `guard` evaluates to false:
