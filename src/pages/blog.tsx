@@ -4,16 +4,21 @@ import { graphql } from "gatsby"
 import Articles from "../components/articles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import styled from "styled-components"
+
+const ArticlesContainer = styled.div``
 
 const Blog = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
-  const siteTitle = data.site.siteMetadata.title
+  // const siteTitle = data.site.siteMetadata.title
 
   return (
-    <Layout location={data.location} title={siteTitle}>
+    <Layout>
       <SEO title="Blog" />
 
-      <Articles posts={posts} />
+      <ArticlesContainer>
+        <Articles posts={posts} />
+      </ArticlesContainer>
     </Layout>
   )
 }

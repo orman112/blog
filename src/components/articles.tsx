@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 const Article = styled.article`
-  margin: 3rem 0;
   border-bottom: solid 1px rgba(42, 68, 105, 0.3);
 
   &:last-child {
@@ -61,6 +60,7 @@ const Article = styled.article`
 export default ({ posts }) => {
   return posts.map(({ node }) => {
     const title = node.frontmatter.title || node.fields.slug
+
     return (
       <Article key={node.fields.slug}>
         <div className="article-content">
