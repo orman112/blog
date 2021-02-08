@@ -22,8 +22,8 @@ const LayoutContainer = styled.div`
 export default ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
+      <Nav />
       <Layout>
-        <Nav />
         <section className="section">
           <LayoutContainer className="container">
             <SideBar />

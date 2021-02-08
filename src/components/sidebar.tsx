@@ -1,19 +1,44 @@
 import { Link } from "gatsby"
 import React from "react"
+import styled from "styled-components"
+import { Home, Edit3, Briefcase, Tool, Coffee } from "react-feather"
+
+const SidebarWrapper = styled.aside`
+  min-width: 20%;
+  padding-right: 1em;
+  span {
+    padding-left: 1em;
+  }
+`
 
 const SideBar = () => {
   return (
-    <aside className="menu is-hidden-mobile is-fullheight is-flex-desktop">
+    <SidebarWrapper className="menu is-hidden-mobile is-fullheight">
       <ul className="menu-list">
         <li>
-          <Link to="/">Home</Link>
-          <Link to="/blog">Blog</Link>
-          <Link to="/uses">Uses</Link>
-          <Link to="/projects">Projects</Link>
-          <Link to="/about">About</Link>
+          <Link to="/">
+            <Home />
+            <span>Home</span>
+          </Link>
+          <Link to="/blog">
+            <Edit3 />
+            <span>Blog</span>
+          </Link>
+          <Link to="/uses">
+            <Briefcase />
+            <span>Uses</span>
+          </Link>
+          <Link to="/projects">
+            <Tool />
+            <span>Projects</span>
+          </Link>
+          <Link to="/about">
+            <Coffee />
+            <span>About</span>
+          </Link>
         </li>
       </ul>
-    </aside>
+    </SidebarWrapper>
   )
 }
 

@@ -49,43 +49,41 @@ export default ({ data, location }) => {
     <Layout location={location} title={title}>
       <SEO title="Home" />
       <section className="hero">
-        <div className="hero-body">
-          <HomePage>
-            <h1 className="title is-uppercase has-text-centered">{title}</h1>
-            <p>
-              Welcome! My name's <Link to="/about">Clayton</Link> and I'm a
-              software developer based out of Louisville, KY. I'm constantly
-              striving to learn new and exciting technologies, and figured a{" "}
-              <Link to="/blog">blog</Link> was a good way to capture that
-              journey and maybe help others in the process. Feel free to explore
-              the site and reach out to me on{" "}
-              <a
-                href={`https://www.github.com/${githubUserName}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub
-              </a>
-              ,{" "}
-              <a
-                href={`https://twitter.com/${twitterHandle}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Twitter
-              </a>
-              , or{" "}
-              <a
-                href={`https://www.linkedin.com/in/${linkedInSuffix}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                LinkedIn
-              </a>{" "}
-              if you want to learn more!
-            </p>
-          </HomePage>
-        </div>
+        <HomePage>
+          <h1 className="title is-1 is-uppercase has-text-centered">{title}</h1>
+          <p>
+            Welcome! My name's <Link to="/about">Clayton</Link> and I'm a
+            software developer based out of Louisville, KY. I'm constantly
+            striving to learn new and exciting technologies, and figured a{" "}
+            <Link to="/blog">blog</Link> was a good way to capture that journey
+            and maybe help others in the process. Feel free to explore the site
+            and reach out to me on{" "}
+            <a
+              href={`https://www.github.com/${githubUserName}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+            ,{" "}
+            <a
+              href={`https://twitter.com/${twitterHandle}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Twitter
+            </a>
+            , or{" "}
+            <a
+              href={`https://www.linkedin.com/in/${linkedInSuffix}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>{" "}
+            if you want to learn more!
+          </p>
+        </HomePage>
       </section>
     </Layout>
   )
