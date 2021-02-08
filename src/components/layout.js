@@ -6,6 +6,7 @@ import Nav from "./nav"
 import Footer from "./footer"
 //Styles
 import "../styles/bulma-override.scss"
+import SideBar from "./sidebar.tsx"
 
 const Layout = styled.div`
   position: relative;
@@ -18,6 +19,7 @@ export default ({ children }) => {
     <ThemeProvider theme={theme}>
       <Layout>
         <Nav />
+        <SideBar />
         <section className="section">
           <div className="container">{children}</div>
         </section>
