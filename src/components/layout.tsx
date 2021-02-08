@@ -6,7 +6,7 @@ import Nav from "./nav"
 import Footer from "./footer"
 //Styles
 import "../styles/bulma-override.scss"
-import SideBar from "./sidebar.tsx"
+import SideBar from "./sidebar"
 
 const Layout = styled.div`
   position: relative;
@@ -14,14 +14,21 @@ const Layout = styled.div`
   padding-bottom: 5rem;
 `
 
+const LayoutContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
 export default ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <Layout>
         <Nav />
-        <SideBar />
         <section className="section">
-          <div className="container">{children}</div>
+          <LayoutContainer className="container">
+            <SideBar />
+            {children}
+          </LayoutContainer>
         </section>
         <Footer>The Frugal Dev</Footer>
       </Layout>

@@ -1,13 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {
-  faFacebookF,
-  faTwitter,
-  faLinkedinIn,
-  faRedditAlien,
-} from "@fortawesome/free-brands-svg-icons"
+import { Twitter, Linkedin, Facebook } from "react-feather"
 import {
   FacebookShareButton,
   LinkedinShareButton,
@@ -80,7 +74,7 @@ export default ({ socialConfig, tags }) => (
       className="button is-outlined is-rounded facebook"
     >
       <span className="icon">
-        <FontAwesomeIcon icon={faFacebookF} />
+        <Facebook />
       </span>
       <span className="text">Facebook</span>
     </FacebookShareButton>
@@ -92,7 +86,7 @@ export default ({ socialConfig, tags }) => (
       hashtags={tags}
     >
       <span className="icon">
-        <FontAwesomeIcon icon={faTwitter} />
+        <Twitter />
       </span>
       <span className="text">Twitter</span>
     </TwitterShareButton>
@@ -102,20 +96,20 @@ export default ({ socialConfig, tags }) => (
       title={socialConfig.config.title}
     >
       <span className="icon">
-        <FontAwesomeIcon icon={faLinkedinIn} />
+        <Linkedin />
       </span>
       <span className="text">LinkedIn</span>
     </LinkedinShareButton>
-    <RedditShareButton
+    {/* <RedditShareButton
       url={socialConfig.config.url}
       className="button is-outlined is-rounded reddit"
       title={socialConfig.config.title}
     >
       <span className="icon">
-        <FontAwesomeIcon icon={faRedditAlien} />
+    
       </span>
       <span className="text">Reddit</span>
-    </RedditShareButton>
+    </RedditShareButton> */}
   </Social>
 )
 

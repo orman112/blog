@@ -31,7 +31,11 @@ export default () => {
   }
 
   return (
-    <Nav className="navbar" role="navigation" aria-label="main navigation">
+    <Nav
+      className="navbar is-hidden-tablet"
+      role="navigation"
+      aria-label="main navigation"
+    >
       <div className="container">
         <div className="navbar-brand">
           <a

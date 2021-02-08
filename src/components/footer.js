@@ -1,12 +1,7 @@
 import React from "react"
 import { useStaticQuery } from "gatsby"
 import styled from "styled-components"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {
-  faGithub,
-  faTwitter,
-  faLinkedinIn,
-} from "@fortawesome/free-brands-svg-icons"
+import { Twitter, GitHub, Linkedin } from "react-feather"
 
 const Footer = styled.footer`
   position: absolute;
@@ -54,7 +49,7 @@ export default ({ children }) => {
             rel="noopener noreferrer"
           >
             <div className="button-icon github">
-              <FontAwesomeIcon icon={faGithub} />
+              <GitHub />
             </div>
           </a>
           <a
@@ -63,7 +58,7 @@ export default ({ children }) => {
             rel="noopener noreferrer"
           >
             <div className="button-icon linkedin">
-              <FontAwesomeIcon icon={faLinkedinIn} />
+              <Linkedin />
             </div>
           </a>
           <a
@@ -72,7 +67,7 @@ export default ({ children }) => {
             rel="noopener noreferrer"
           >
             <div className="button-icon twitter">
-              <FontAwesomeIcon icon={faTwitter} />
+              <Twitter />
             </div>
           </a>
         </div>
