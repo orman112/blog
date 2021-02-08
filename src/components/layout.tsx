@@ -30,7 +30,7 @@ export default ({ children }) => {
             {children}
           </LayoutContainer>
         </section>
-        <Footer>The Frugal Dev</Footer>
+        <Footer />
       </Layout>
     </ThemeProvider>
   )

@@ -14,16 +14,16 @@
 @import "./spacing-helpers.scss";
 
 // Inline code blocks
-:not(pre) > code[class*="language"] {
-  padding: 0.25em 0.5em 0.25em;
-  background-color: #e8e8e8 !important;
-  color: #f4494c !important;
-  > * {
-    color: inherit !important;
-  }
-  border-radius: 0 !important;
-  font-size: 0.8em;
-}
+// :not(pre) > code[class*="language"] {
+//   padding: 0.25em 0.5em 0.25em;
+//   background-color: #e8e8e8 !important;
+//   color: #f4494c !important;
+//   > * {
+//     color: inherit !important;
+//   }
+//   border-radius: 0 !important;
+//   font-size: 0.8em;
+// }
 
 //Prism JS overrides for Bulma
 .token.tag,

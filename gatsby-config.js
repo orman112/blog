@@ -9,7 +9,6 @@ module.exports = {
       twitterHandle: `thefrugaldev`,
       linkedInSuffix: `tfd`,
       githubUserName: `thefrugaldev`,
-      disqusShortName: `thefrugaldev`,
     },
   },
   plugins: [

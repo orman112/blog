@@ -46,7 +46,7 @@ export default ({ data, location }) => {
   } = data
 
   return (
-    <Layout location={location} title={title}>
+    <Layout>
       <SEO title="Home" />
       <section className="hero">
         <HomePage>

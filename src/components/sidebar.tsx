@@ -5,7 +5,11 @@ import { Home, Edit3, Briefcase, Tool, Coffee } from "react-feather"
 
 const SidebarWrapper = styled.aside`
   min-width: 20%;
-  padding-right: 1em;
+  margin-right: 1em;
+  a {
+    margin: 1em 0;
+    padding: 1em;
+  }
   span {
     padding-left: 1em;
   }
@@ -13,7 +17,7 @@ const SidebarWrapper = styled.aside`
 
 const SideBar = () => {
   return (
-    <SidebarWrapper className="menu is-hidden-mobile is-fullheight">
+    <SidebarWrapper className="menu is-hidden-mobile">
       <ul className="menu-list">
         <li>
           <Link to="/">

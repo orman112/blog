@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Disqus from "disqus-react"
 import styled from "styled-components"
 //Components
 import Layout from "../components/layout"
@@ -9,6 +8,8 @@ import SEO from "../components/seo"
 import Social from "../components/social"
 
 const BlogPostTemplate = styled.article`
+  min-width: 0;
+
   .post {
     border-bottom: ${props => props.theme.borderBottom};
 
@@ -54,35 +55,30 @@ export default ({ data, location }) => {
     site: {
       siteMetadata: {
         siteUrl,
-        social: { twitterHandle, disqusShortName },
+        social: { twitterHandle },
       },
     },
   } = data
-  const disqusConfig = {
-    shortname: disqusShortName,
-    config: {
-      url: `${siteUrl}${path}`,
-      title,
-      identifier: id,
-    },
-    twitterHandle,
-  }
+
   const heroImage = `https://source.unsplash.com/${unsplash_image_id}/960x300/`
 
   return (
-    <Layout location={location} title={title}>
+    <Layout>
       <SEO
         title={title}
         description={description || excerpt}
         imageSrc={heroImage}
       />
-      <BlogPostTemplate className="content">
-        <h1 className="has-text-centered">{title}</h1>
+      <BlogPostTemplate>
+        <h1 className="title is-1 has-text-centered">{title}</h1>
 
         <img className="post-image" src={heroImage} alt="" />
 
         <p className="post-date">{date}</p>
-        <section className="post" dangerouslySetInnerHTML={{ __html: html }} />
+        <section
+          className="post content"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
         <div className="post-meta">
           {tags && tags.length ? (
             <div>
@@ -105,7 +101,6 @@ export default ({ data, location }) => {
           </div>
         </div>
       </BlogPostTemplate>
-      <Disqus.DiscussionEmbed {...disqusConfig} />
     </Layout>
   )
 }
@@ -119,7 +114,6 @@ export const pageQuery = graphql`
         siteUrl
         social {
           twitterHandle
-          disqusShortName
         }
       }
     }
